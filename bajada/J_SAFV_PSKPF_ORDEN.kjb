@@ -1,14 +1,14 @@
 <job>
-  <name>J_psk_pf_safv_existencia</name>
+  <name>J_SAFV_PSKPF_ORDEN</name>
   <description/>
   <extended_description/>
   <job_version/>
   <job_status>0</job_status>
-  <directory>/purofarma/subida</directory>
+  <directory>/purofarma/bajada</directory>
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/01/23 14:10:52.818</modified_date>
+  <modified_date>2021/01/24 02:50:23.288</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
@@ -501,25 +501,25 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>T_safv_dbafv_existencia</name>
+      <name>T_TransformationTemplate</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>T_psk_pf_safv_existencia</transname>
-      <directory>/purofarma/subida</directory>
+      <transname>T_TransformationTemplate</transname>
+      <directory>/generales</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>Y</set_logfile>
-      <logfile>${LOGS_DIRECTORY}\J_psk_pf_safv_existencia_T_psk_pf_safv_existencia</logfile>
+      <logfile>${LOGS_DIRECTORY}\${Internal.Job.Name}</logfile>
       <logext>log</logext>
       <add_date>Y</add_date>
-      <add_time>N</add_time>
+      <add_time>Y</add_time>
       <loglevel>Detailed</loglevel>
       <cluster>N</cluster>
       <slave_server_name/>
@@ -532,6 +532,81 @@
       <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>ECOMIX_HOST_NAME</name>
+          <stream_name/>
+          <value>${ECOMIX_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_PASSWORD</name>
+          <stream_name/>
+          <value>${ECOMIX_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_PORT</name>
+          <stream_name/>
+          <value>${ECOMIX_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_SCHEMA</name>
+          <stream_name/>
+          <value>${ECOMIX_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_USER</name>
+          <stream_name/>
+          <value>${ECOMIX_USER}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_HOST_NAME</name>
+          <stream_name/>
+          <value>${PUROFM_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_PASSWORD</name>
+          <stream_name/>
+          <value>${PUROFM_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_PORT</name>
+          <stream_name/>
+          <value>${PUROFM_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_SCHEMA</name>
+          <stream_name/>
+          <value>${PUROFM_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_USER</name>
+          <stream_name/>
+          <value>${PUROFM_USER}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_HOST_NAME</name>
+          <stream_name/>
+          <value>${CASARE_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_PASSWORD</name>
+          <stream_name/>
+          <value>${CASARE_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_PORT</name>
+          <stream_name/>
+          <value>${CASARE_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_SCHEMA</name>
+          <stream_name/>
+          <value>${CASARE_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_USER</name>
+          <stream_name/>
+          <value>${CASARE_USER}</value>
+        </parameter>
         <parameter>
           <name>LOGS_DIRECTORY</name>
           <stream_name/>
@@ -640,10 +715,10 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>Y</set_logfile>
-      <logfile>${LOGS_DIRECTORY}\J_psk_pf_safv_existencia_T_SetVariables</logfile>
+      <logfile>${LOGS_DIRECTORY}\${Internal.Job.Name}</logfile>
       <logext>log</logext>
       <add_date>Y</add_date>
-      <add_time>N</add_time>
+      <add_time>Y</add_time>
       <loglevel>Detailed</loglevel>
       <cluster>N</cluster>
       <slave_server_name/>
@@ -673,7 +748,7 @@
   <hops>
     <hop>
       <from>Check Db connections</from>
-      <to>T_safv_dbafv_existencia</to>
+      <to>T_TransformationTemplate</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
