@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/01/24 21:30:28.118</modified_date>
+    <modified_date>2021/01/24 23:38:34.811</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1226,6 +1226,7 @@
 from
 	existencia a
 where almacen in ('M1','V1','C1','B1')
+and precio>0
 
  </sql>
     <limit>0</limit>
