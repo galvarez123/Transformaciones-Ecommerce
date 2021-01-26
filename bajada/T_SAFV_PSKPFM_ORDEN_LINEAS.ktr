@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>T_SAFV_PSKPFM_ORDEN</name>
+    <name>T_SAFV_PSKPFM_ORDEN_LINEAS</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -504,7 +504,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/01/25 02:14:06.098</modified_date>
+    <modified_date>2021/01/25 10:06:19.560</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -519,6 +519,65 @@
     <port>3306</port>
     <username>${PSK_PF_USER}</username>
     <password>${PSK_PF_PASSWORD}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useSSL</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>PUROFM</name>
+    <server>${PUROFM_HOST_NAME}</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>${PUROFM_SCHEMA}</database>
+    <port>3306</port>
+    <username>${PUROFM_USER}</username>
+    <password>${PUROFM_PASSWORD}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -650,16 +709,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>AGENCIA ALMACEN</from>
-      <to>Database lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Database lookup</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values 2</from>
       <to>Add constants</to>
       <enabled>Y</enabled>
@@ -667,6 +716,16 @@
     <hop>
       <from>Add constants</from>
       <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>articulo lookup</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>AGENCIA ALMACEN</from>
+      <to>articulo lookup</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -683,157 +742,37 @@
     </partitioning>
     <fields>
       <field>
-        <name>emisionant</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
+        <name>agencia</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
+        <nullif>001</nullif>
+        <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>fechacrea</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
+        <name>agenciant</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
+        <nullif> </nullif>
+        <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>fechanul</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>recepcion</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ult_interes</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ultimopag</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>vence</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0000-00-00</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>apa_nc</name>
+        <name>al_libro</name>
         <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>entregado</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>escredito</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>nosujeto</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>notimbrar</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>usa_despacho</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
+        <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -851,7 +790,31 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>chequedev</name>
+        <name>antdoc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>antipo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>apa_nc</name>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -863,277 +826,13 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>comanda_movil</name>
-        <type>Integer</type>
+        <name>aplicadoa</name>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>contingencia</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>diascred</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>estatusdoc</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>integrado</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>para_llevar</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>parcialidad</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>precta_movil</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>procedecre</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>seimporto</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipopersona</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tranferido</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>al_libro</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>comanda_kmonitor</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>dbcr</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>multi_div</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipoprecio</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>dsctoend1</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>dsctoend2</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>dsctolinea</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>imp_nacional</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>imp_producc</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>vuelto</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
+        <nullif> </nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -1235,6 +934,558 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
+        <name>cedcompra</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>checkin</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>chequedev</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>codcliente</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>codigoret</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>codvend_a</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>codvend_b</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>codvend_c</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>codvend_d</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>comanda_kmonitor</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>comanda_movil</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>compcont</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>comprador</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>contingencia</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>cprefijodeserie</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>cprefijoserie</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>cserie</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dbcr</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>despachador</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>despacho_nro</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>diascred</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>doc_class_id</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>documant</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>documentofiscal</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>200</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>documentolocal</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>200</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dsctoend1</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dsctoend2</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dsctolinea</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>emisionant</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>entregado</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>escredito</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>estacioant</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>estacion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>999</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>estatusdoc</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>factorcamb</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>factorreferencial</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>fechacrea</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>fechanul</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>formafis</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>frog</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>grandocnum</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>horadocum</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>iddocumento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>idvalidacion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>imp_nacional</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>imp_producc</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
         <name>impuesto1</name>
         <type>Number</type>
         <format/>
@@ -1307,8 +1558,236 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
+        <name>integrado</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>moneda</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>000</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>motanul</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>multi_div</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>nit</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>nodoremoto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>nosujeto</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>notimbrar</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>numeroz</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>nureserva</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>opemail</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>operac</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>orden</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ordentrab</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>para_llevar</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>parcialidad</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>planillacob</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
         <name>porbackord</name>
         <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>precta_movil</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>procedecre</name>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1326,6 +1805,234 @@
         <decimal/>
         <group/>
         <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>recepcion</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>referencia</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>refmanual</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>refmanual2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>retencion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>retencioniva</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>seimporto</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>seq_nodo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000000001</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>serialprintf</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>serieauto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>serieincluyeimpuesto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>sinimpuest</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>subtipodoc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipo_nc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipodoc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipodocant</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipodocfiscal</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipopersona</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipoprecio</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -1415,607 +2122,31 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>antdoc</name>
-        <type>String</type>
+        <name>tranferido</name>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>antipo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>aplicadoa</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>cedcompra</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>checkin</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>codcliente</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>codigoret</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>codvend_a</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>codvend_b</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>codvend_c</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>codvend_d</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>compcont</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>comprador</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>cprefijodeserie</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>cprefijoserie</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>cserie</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>despachador</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>despacho_nro</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>doc_class_id</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>documant</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>documentofiscal</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>200</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>documentolocal</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>200</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>estacioant</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>factorcamb</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>factorreferencial</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>formafis</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>frog</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>grandocnum</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>horadocum</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>iddocumento</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>idvalidacion</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>motanul</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>nit</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>nodoremoto</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>numeroz</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>nureserva</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>opemail</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>operac</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>orden</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>ordentrab</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>planillacob</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>referencia</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>refmanual</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>refmanual2</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>serialprintf</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>sinimpuest</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>subtipodoc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipo_nc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipodoc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipodocant</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
+        <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
         <name>turno</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>uanulador</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -2039,6 +2170,18 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
+        <name>uemisor</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>replica</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
         <name>uemisorant</name>
         <type>String</type>
         <format/>
@@ -2046,6 +2189,66 @@
         <decimal/>
         <group/>
         <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ult_interes</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ultimopag</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>usa_despacho</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>vence</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0000-00-00</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>vuelto</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -2074,150 +2277,6 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
-      <field>
-        <name>agenciant</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>3</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>uanulador</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>retencion</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>retencioniva</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>serieauto</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>serieincluyeimpuesto</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipodocfiscal</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>moneda</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>000</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>seq_nodo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>0000000001</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>agencia</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>001</nullif>
-        <length>3</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>estacion</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>999</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>uemisor</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>replica</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2229,66 +2288,6 @@
     </remotesteps>
     <GUI>
       <xloc>560</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SAFV</connection>
-    <cache>Y</cache>
-    <cache_load_all>Y</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>${SAFV_SCHEMA}</schema>
-      <table>zonas</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>nombrezona</name>
-        <field>zona</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>nombresector</name>
-        <field>sector</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id_zona</name>
-        <rename>sector</rename>
-        <default>000000</default>
-        <type>String</type>
-      </value>
-      <value>
-        <name>id_sector</name>
-        <rename>subsector</rename>
-        <default>000000</default>
-        <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3157,7 +3156,15 @@
     </partitioning>
     <fields>
       <field>
+        <name>agencia</name>
+        <rename/>
+      </field>
+      <field>
         <name>documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codcliente</name>
         <rename/>
       </field>
       <field>
@@ -3165,31 +3172,15 @@
         <rename/>
       </field>
       <field>
-        <name>nombrecli</name>
+        <name>codigo</name>
         <rename/>
       </field>
       <field>
-        <name>contacto</name>
+        <name>preciounit</name>
         <rename/>
       </field>
       <field>
-        <name>rif</name>
-        <rename/>
-      </field>
-      <field>
-        <name>direccion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>telefonos</name>
-        <rename/>
-      </field>
-      <field>
-        <name>totalfinal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>notas</name>
+        <name>montototal</name>
         <rename/>
       </field>
       <field>
@@ -3197,135 +3188,35 @@
         <rename/>
       </field>
       <field>
-        <name>almacen</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sector</name>
-        <rename/>
-      </field>
-      <field>
-        <name>subsector</name>
-        <rename/>
-      </field>
-      <field>
         <name>fechayhora</name>
         <rename/>
       </field>
       <field>
-        <name>fchyhrant</name>
+        <name>almacen</name>
         <rename/>
       </field>
       <field>
-        <name>emision</name>
+        <name>nombre</name>
         <rename/>
       </field>
       <field>
-        <name>emisionant</name>
+        <name>impuesto1</name>
         <rename/>
       </field>
       <field>
-        <name>fechacrea</name>
+        <name>grupo</name>
         <rename/>
       </field>
       <field>
-        <name>fechanul</name>
+        <name>subgrupo</name>
         <rename/>
       </field>
       <field>
-        <name>recepcion</name>
+        <name>agencia_1</name>
         <rename/>
       </field>
       <field>
-        <name>ult_interes</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ultimopag</name>
-        <rename/>
-      </field>
-      <field>
-        <name>vence</name>
-        <rename/>
-      </field>
-      <field>
-        <name>apa_nc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>entregado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>escredito</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nosujeto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>notimbrar</name>
-        <rename/>
-      </field>
-      <field>
-        <name>usa_despacho</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ampm</name>
-        <rename/>
-      </field>
-      <field>
-        <name>chequedev</name>
-        <rename/>
-      </field>
-      <field>
-        <name>comanda_movil</name>
-        <rename/>
-      </field>
-      <field>
-        <name>contingencia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>diascred</name>
-        <rename/>
-      </field>
-      <field>
-        <name>estatusdoc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>integrado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>para_llevar</name>
-        <rename/>
-      </field>
-      <field>
-        <name>parcialidad</name>
-        <rename/>
-      </field>
-      <field>
-        <name>precta_movil</name>
-        <rename/>
-      </field>
-      <field>
-        <name>procedecre</name>
-        <rename/>
-      </field>
-      <field>
-        <name>seimporto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipopersona</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tranferido</name>
+        <name>agenciant</name>
         <rename/>
       </field>
       <field>
@@ -3333,43 +3224,23 @@
         <rename/>
       </field>
       <field>
-        <name>comanda_kmonitor</name>
+        <name>ampm</name>
         <rename/>
       </field>
       <field>
-        <name>dbcr</name>
+        <name>antdoc</name>
         <rename/>
       </field>
       <field>
-        <name>multi_div</name>
+        <name>antipo</name>
         <rename/>
       </field>
       <field>
-        <name>tipoprecio</name>
+        <name>apa_nc</name>
         <rename/>
       </field>
       <field>
-        <name>dsctoend1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>dsctoend2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>dsctolinea</name>
-        <rename/>
-      </field>
-      <field>
-        <name>imp_nacional</name>
-        <rename/>
-      </field>
-      <field>
-        <name>imp_producc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>vuelto</name>
+        <name>aplicadoa</name>
         <rename/>
       </field>
       <field>
@@ -3405,7 +3276,191 @@
         <rename/>
       </field>
       <field>
-        <name>impuesto1</name>
+        <name>cedcompra</name>
+        <rename/>
+      </field>
+      <field>
+        <name>checkin</name>
+        <rename/>
+      </field>
+      <field>
+        <name>chequedev</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codcliente_1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codigoret</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codvend_a</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codvend_b</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codvend_c</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codvend_d</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comanda_kmonitor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comanda_movil</name>
+        <rename/>
+      </field>
+      <field>
+        <name>compcont</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comprador</name>
+        <rename/>
+      </field>
+      <field>
+        <name>contingencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cprefijodeserie</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cprefijoserie</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cserie</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dbcr</name>
+        <rename/>
+      </field>
+      <field>
+        <name>despachador</name>
+        <rename/>
+      </field>
+      <field>
+        <name>despacho_nro</name>
+        <rename/>
+      </field>
+      <field>
+        <name>diascred</name>
+        <rename/>
+      </field>
+      <field>
+        <name>doc_class_id</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documentofiscal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documentolocal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoend1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoend2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctolinea</name>
+        <rename/>
+      </field>
+      <field>
+        <name>emisionant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>entregado</name>
+        <rename/>
+      </field>
+      <field>
+        <name>escredito</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estacioant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estatusdoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>factorcamb</name>
+        <rename/>
+      </field>
+      <field>
+        <name>factorreferencial</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fechacrea</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fechanul</name>
+        <rename/>
+      </field>
+      <field>
+        <name>formafis</name>
+        <rename/>
+      </field>
+      <field>
+        <name>frog</name>
+        <rename/>
+      </field>
+      <field>
+        <name>grandocnum</name>
+        <rename/>
+      </field>
+      <field>
+        <name>horadocum</name>
+        <rename/>
+      </field>
+      <field>
+        <name>iddocumento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idvalidacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>imp_nacional</name>
+        <rename/>
+      </field>
+      <field>
+        <name>imp_producc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto1_1</name>
         <rename/>
       </field>
       <field>
@@ -3429,11 +3484,163 @@
         <rename/>
       </field>
       <field>
+        <name>integrado</name>
+        <rename/>
+      </field>
+      <field>
+        <name>moneda</name>
+        <rename/>
+      </field>
+      <field>
+        <name>motanul</name>
+        <rename/>
+      </field>
+      <field>
+        <name>multi_div</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nodoremoto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nosujeto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>notimbrar</name>
+        <rename/>
+      </field>
+      <field>
+        <name>numeroz</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nureserva</name>
+        <rename/>
+      </field>
+      <field>
+        <name>opemail</name>
+        <rename/>
+      </field>
+      <field>
+        <name>operac</name>
+        <rename/>
+      </field>
+      <field>
+        <name>orden</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ordentrab</name>
+        <rename/>
+      </field>
+      <field>
+        <name>para_llevar</name>
+        <rename/>
+      </field>
+      <field>
+        <name>parcialidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>planillacob</name>
+        <rename/>
+      </field>
+      <field>
         <name>porbackord</name>
         <rename/>
       </field>
       <field>
+        <name>precta_movil</name>
+        <rename/>
+      </field>
+      <field>
+        <name>procedecre</name>
+        <rename/>
+      </field>
+      <field>
         <name>recargos</name>
+        <rename/>
+      </field>
+      <field>
+        <name>recepcion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>referencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>refmanual</name>
+        <rename/>
+      </field>
+      <field>
+        <name>refmanual2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>retencion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>retencioniva</name>
+        <rename/>
+      </field>
+      <field>
+        <name>seimporto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>seq_nodo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>serialprintf</name>
+        <rename/>
+      </field>
+      <field>
+        <name>serieauto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>serieincluyeimpuesto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>sinimpuest</name>
+        <rename/>
+      </field>
+      <field>
+        <name>subtipodoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipo_nc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipodoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipodocant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipodocfiscal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipopersona</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipoprecio</name>
         <rename/>
       </field>
       <field>
@@ -3465,203 +3672,7 @@
         <rename/>
       </field>
       <field>
-        <name>antdoc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>antipo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>aplicadoa</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cedcompra</name>
-        <rename/>
-      </field>
-      <field>
-        <name>checkin</name>
-        <rename/>
-      </field>
-      <field>
-        <name>codcliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>codigoret</name>
-        <rename/>
-      </field>
-      <field>
-        <name>codvend_a</name>
-        <rename/>
-      </field>
-      <field>
-        <name>codvend_b</name>
-        <rename/>
-      </field>
-      <field>
-        <name>codvend_c</name>
-        <rename/>
-      </field>
-      <field>
-        <name>codvend_d</name>
-        <rename/>
-      </field>
-      <field>
-        <name>compcont</name>
-        <rename/>
-      </field>
-      <field>
-        <name>comprador</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cprefijodeserie</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cprefijoserie</name>
-        <rename/>
-      </field>
-      <field>
-        <name>cserie</name>
-        <rename/>
-      </field>
-      <field>
-        <name>despachador</name>
-        <rename/>
-      </field>
-      <field>
-        <name>despacho_nro</name>
-        <rename/>
-      </field>
-      <field>
-        <name>doc_class_id</name>
-        <rename/>
-      </field>
-      <field>
-        <name>documant</name>
-        <rename/>
-      </field>
-      <field>
-        <name>documentofiscal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>documentolocal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>estacioant</name>
-        <rename/>
-      </field>
-      <field>
-        <name>factorcamb</name>
-        <rename/>
-      </field>
-      <field>
-        <name>factorreferencial</name>
-        <rename/>
-      </field>
-      <field>
-        <name>formafis</name>
-        <rename/>
-      </field>
-      <field>
-        <name>frog</name>
-        <rename/>
-      </field>
-      <field>
-        <name>grandocnum</name>
-        <rename/>
-      </field>
-      <field>
-        <name>horadocum</name>
-        <rename/>
-      </field>
-      <field>
-        <name>iddocumento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>idvalidacion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>motanul</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nit</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nodoremoto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>numeroz</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nureserva</name>
-        <rename/>
-      </field>
-      <field>
-        <name>opemail</name>
-        <rename/>
-      </field>
-      <field>
-        <name>operac</name>
-        <rename/>
-      </field>
-      <field>
-        <name>orden</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ordentrab</name>
-        <rename/>
-      </field>
-      <field>
-        <name>planillacob</name>
-        <rename/>
-      </field>
-      <field>
-        <name>referencia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>refmanual</name>
-        <rename/>
-      </field>
-      <field>
-        <name>refmanual2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>serialprintf</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sinimpuest</name>
-        <rename/>
-      </field>
-      <field>
-        <name>subtipodoc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipo_nc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipodoc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipodocant</name>
+        <name>tranferido</name>
         <rename/>
       </field>
       <field>
@@ -3669,11 +3680,39 @@
         <rename/>
       </field>
       <field>
+        <name>uanulador</name>
+        <rename/>
+      </field>
+      <field>
         <name>ubica</name>
         <rename/>
       </field>
       <field>
+        <name>uemisor</name>
+        <rename/>
+      </field>
+      <field>
         <name>uemisorant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ult_interes</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ultimopag</name>
+        <rename/>
+      </field>
+      <field>
+        <name>usa_despacho</name>
+        <rename/>
+      </field>
+      <field>
+        <name>vence</name>
+        <rename/>
+      </field>
+      <field>
+        <name>vuelto</name>
         <rename/>
       </field>
       <field>
@@ -3682,54 +3721,6 @@
       </field>
       <field>
         <name>xresponse</name>
-        <rename/>
-      </field>
-      <field>
-        <name>agenciant</name>
-        <rename/>
-      </field>
-      <field>
-        <name>uanulador</name>
-        <rename/>
-      </field>
-      <field>
-        <name>retencion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>retencioniva</name>
-        <rename/>
-      </field>
-      <field>
-        <name>serieauto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>serieincluyeimpuesto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipodocfiscal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>moneda</name>
-        <rename/>
-      </field>
-      <field>
-        <name>seq_nodo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>agencia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>estacion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>uemisor</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -3826,22 +3817,15 @@
     <sql>select
 agencia,
 documento,
+codcliente,
 fechaemi,
-fechaemi emision,
-nombrecli,
-contacto,
-rif,
-direccion,
-telefonos,
-totalfinal,
-notas,
-fechayhora,
-fechayhora fchyhrant,
-"000000" vendedor,
-COALESCE(	zona,"000000") nombrezona,
-COALESCE(	sector,"000000") nombresector	
+codigo,
+preciounit,
+montototal,
+vendedor,
+fechayhora
 from
-	ORDEN A</sql>
+	orden_detalle </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -3896,6 +3880,29 @@ from
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>codcliente</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>codcliente</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>Date</type>
         <storagetype>normal</storagetype>
         <name>fechaemi</name>
@@ -3919,128 +3926,13 @@ from
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>emision</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>emision</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>nombrecli</name>
-        <length>100</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>nombrecli</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>contacto</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>contacto</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>rif</name>
+        <name>codigo</name>
         <length>25</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>rif</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>direccion</name>
-        <length>200</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>direccion</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>telefonos</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>telefonos</comments>
+        <comments>codigo</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -4059,11 +3951,34 @@ from
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>totalfinal</name>
-        <length>24</length>
+        <name>preciounit</name>
+        <length>20</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>totalfinal</comments>
+        <comments>preciounit</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>montototal</name>
+        <length>20</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>montototal</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -4082,11 +3997,11 @@ from
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>notas</name>
-        <length>715827882</length>
+        <name>vendedor</name>
+        <length>8</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>notas</comments>
+        <comments>vendedor</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -4125,98 +4040,6 @@ from
         <date_format_timezone>America/Caracas</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
-      <value-meta>
-        <type>Timestamp</type>
-        <storagetype>normal</storagetype>
-        <name>fchyhrant</name>
-        <length>0</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>fchyhrant</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>vendedor</name>
-        <length>6</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>vendedor</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>nombrezona</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>nombrezona</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>nombresector</name>
-        <length>50</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>nombresector</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -4227,7 +4050,7 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>64</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4275,7 +4098,7 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>176</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4293,7 +4116,15 @@ from
     </partitioning>
     <fields>
       <field>
+        <name>agencia</name>
+        <rename/>
+      </field>
+      <field>
         <name>documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codcliente</name>
         <rename/>
       </field>
       <field>
@@ -4301,31 +4132,15 @@ from
         <rename/>
       </field>
       <field>
-        <name>nombrecli</name>
+        <name>codigo</name>
         <rename/>
       </field>
       <field>
-        <name>contacto</name>
+        <name>preciounit</name>
         <rename/>
       </field>
       <field>
-        <name>rif</name>
-        <rename/>
-      </field>
-      <field>
-        <name>direccion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>telefonos</name>
-        <rename/>
-      </field>
-      <field>
-        <name>totalfinal</name>
-        <rename/>
-      </field>
-      <field>
-        <name>notas</name>
+        <name>montototal</name>
         <rename/>
       </field>
       <field>
@@ -4333,27 +4148,27 @@ from
         <rename/>
       </field>
       <field>
-        <name>almacen</name>
-        <rename/>
-      </field>
-      <field>
-        <name>sector</name>
-        <rename/>
-      </field>
-      <field>
-        <name>subsector</name>
-        <rename/>
-      </field>
-      <field>
         <name>fechayhora</name>
         <rename/>
       </field>
       <field>
-        <name>fchyhrant</name>
+        <name>almacen</name>
         <rename/>
       </field>
       <field>
-        <name>emision</name>
+        <name>nombre</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>grupo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>subgrupo</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -4367,7 +4182,73 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>448</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>articulo lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PUROFM</connection>
+    <cache>Y</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>${PUROFM_SCHEMA}</schema>
+      <table>articulo</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>codigo</name>
+        <field>codigo</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>nombre</name>
+        <rename>nombre</rename>
+        <default> </default>
+        <type>String</type>
+      </value>
+      <value>
+        <name>impuesto1</name>
+        <rename>impuesto1</rename>
+        <default>0</default>
+        <type>Number</type>
+      </value>
+      <value>
+        <name>grupo</name>
+        <rename>grupo</rename>
+        <default>00</default>
+        <type>String</type>
+      </value>
+      <value>
+        <name>subgrupo</name>
+        <rename>subgrupo</rename>
+        <default>00</default>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
