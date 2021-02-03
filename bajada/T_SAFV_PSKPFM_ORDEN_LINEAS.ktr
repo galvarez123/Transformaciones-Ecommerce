@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/03 08:50:34.145</modified_date>
+    <modified_date>2021/02/03 16:40:55.594</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -655,11 +655,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>articulo lookup</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>AGENCIA ALMACEN</from>
       <to>articulo lookup</to>
       <enabled>Y</enabled>
@@ -672,6 +667,16 @@
     <hop>
       <from>Get variables</from>
       <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>articulo lookup</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations</from>
+      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -961,7 +966,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
+      <xloc>752</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1172,7 +1177,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>992</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1372,7 +1377,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
+      <xloc>864</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1448,7 +1453,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>512</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1869,7 +1874,47 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
+      <xloc>624</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>documento</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper/>
+        <padding_type>left</padding_type>
+        <pad_char>0</pad_char>
+        <pad_len>8</pad_len>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
