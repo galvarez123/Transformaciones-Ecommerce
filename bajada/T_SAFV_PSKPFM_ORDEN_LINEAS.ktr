@@ -509,12 +509,71 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/03 16:40:55.594</modified_date>
+    <modified_date>2021/02/04 21:30:32.740</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>PSK_PF</name>
+    <server>${PSK_PF_HOST_NAME}</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>${PSK_PF_SCHEMA}</database>
+    <port>3306</port>
+    <username>${PSK_PF_USER}</username>
+    <password>${PSK_PF_PASSWORD}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useSSL</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>PUROFM</name>
     <server>${PUROFM_HOST_NAME}</server>
@@ -641,7 +700,7 @@
     </hop>
     <hop>
       <from>Select values</from>
-      <to>Insert / update</to>
+      <to>factura</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -677,6 +736,11 @@
     <hop>
       <from>String operations</from>
       <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>factura</from>
+      <to>ORDEN</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -951,7 +1015,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>FAC</nullif>
+        <nullif>PED</nullif>
         <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -972,7 +1036,7 @@
     </GUI>
   </step>
   <step>
-    <name>Insert / update</name>
+    <name>factura</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -982,12 +1046,18 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>PUROFM</connection>
+    <connection>PSK_PF</connection>
     <commit>1</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema>ADMINPUROFM</schema>
-      <table>OPERMV</table>
+      <schema>PSK_PF</schema>
+      <table>FACTURA_LINEA</table>
+      <key>
+        <name>tipodoc</name>
+        <field>tipodoc</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
       <key>
         <name>documento</name>
         <field>documento</field>
@@ -1001,12 +1071,6 @@
         <name2/>
       </key>
       <key>
-        <name>fechadoc</name>
-        <field>fechadoc</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
         <name>codigo</name>
         <field>codigo</field>
         <condition>=</condition>
@@ -1015,22 +1079,22 @@
       <value>
         <name>documento</name>
         <rename>documento</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>proveedor</name>
         <rename>proveedor</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>fechadoc</name>
         <rename>fechadoc</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>codigo</name>
         <rename>codigo</rename>
-        <update>N</update>
+        <update>Y</update>
       </value>
       <value>
         <name>preciounit</name>
@@ -1155,6 +1219,11 @@
       <value>
         <name>recargounit</name>
         <rename>recargounit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cantidad</name>
+        <rename>cantidad</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1366,6 +1435,10 @@
         <name>recargounit</name>
         <rename/>
       </field>
+      <field>
+        <name>cantidad</name>
+        <rename/>
+      </field>
       <select_unspecified>Y</select_unspecified>
     </fields>
     <attributes/>
@@ -1440,6 +1513,10 @@
       </field>
       <field>
         <name>subgrupo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cantidad</name>
         <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
@@ -1542,7 +1619,8 @@ codigo,
 preciounit,
 montototal,
 vendedor,
-fechayhora
+fechayhora,
+cantidad
 from
 	orden_detalle </sql>
     <limit>0</limit>
@@ -1759,6 +1837,29 @@ from
         <date_format_timezone>America/Caracas</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>cantidad</name>
+        <length>20</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>cantidad</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -1919,9 +2020,225 @@ from
       <draw>Y</draw>
     </GUI>
   </step>
+  <step>
+    <name>ORDEN</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PSK_PF</connection>
+    <commit>1</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>PSK_PF</schema>
+      <table>ORDEN_LINEA</table>
+      <key>
+        <name>tipodoc</name>
+        <field>tipodoc</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>documento</name>
+        <field>documento</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>proveedor</name>
+        <field>proveedor</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>codigo</name>
+        <field>codigo</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>documento</name>
+        <rename>documento</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>proveedor</name>
+        <rename>proveedor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fechadoc</name>
+        <rename>fechadoc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codigo</name>
+        <rename>codigo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>preciounit</name>
+        <rename>preciounit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>montototal</name>
+        <rename>montototal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>vendedor</name>
+        <rename>vendedor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fechayhora</name>
+        <rename>fechayhora</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>almacen</name>
+        <rename>almacen</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nombre</name>
+        <rename>nombre</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>grupo</name>
+        <rename>grupo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subgrupo</name>
+        <rename>subgrupo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>agencia</name>
+        <rename>agencia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>agenciant</name>
+        <rename>agenciant</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>agrupado</name>
+        <rename>agrupado</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>aux1</name>
+        <rename>aux1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo2</name>
+        <rename>baseimpo2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo3</name>
+        <rename>baseimpo3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo4</name>
+        <rename>baseimpo4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo5</name>
+        <rename>baseimpo5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo6</name>
+        <rename>baseimpo6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto2</name>
+        <rename>impuesto2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto3</name>
+        <rename>impuesto3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto4</name>
+        <rename>impuesto4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto5</name>
+        <rename>impuesto5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto6</name>
+        <rename>impuesto6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>preciofin</name>
+        <rename>preciofin</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>preciooriginal</name>
+        <rename>preciooriginal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>recargounit</name>
+        <rename>recargounit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cantidad</name>
+        <rename>cantidad</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_empresa</name>
+        <rename>id_empresa</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipodoc</name>
+        <rename>tipodoc</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1136</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step_error_handling>
     <error>
-      <source_step>Insert / update</source_step>
+      <source_step>factura</source_step>
       <target_step>Dummy (do nothing)</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
