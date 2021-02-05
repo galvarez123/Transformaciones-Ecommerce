@@ -10,12 +10,12 @@
     <parameters>
       <parameter>
         <name>ID_EMPRESA</name>
-        <default_value>PUROFM</default_value>
+        <default_value/>
         <description/>
       </parameter>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
-        <default_value>10.1.240.19</default_value>
+        <default_value/>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -40,7 +40,7 @@
       </parameter>
       <parameter>
         <name>PUROFM_HOST_NAME</name>
-        <default_value>10.1.240.19</default_value>
+        <default_value/>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -65,7 +65,7 @@
       </parameter>
       <parameter>
         <name>SAFV_HOST_NAME</name>
-        <default_value>10.1.240.28</default_value>
+        <default_value/>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/04 21:30:32.740</modified_date>
+    <modified_date>2021/02/05 01:01:40.972</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1036,7 +1036,102 @@
     </GUI>
   </step>
   <step>
-    <name>factura</name>
+    <name>Get variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_empresa</name>
+        <variable>${ID_EMPRESA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_detailed</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>IP</name>
+      </field>
+      <field>
+        <name>HOSTNAME</name>
+      </field>
+      <field>
+        <name>TRANSFORMATION_NAME</name>
+      </field>
+      <field>
+        <name>JVM_AVAILABLE_MEMORY</name>
+      </field>
+      <field>
+        <name>JVM_FREE_MEMORY</name>
+      </field>
+      <field>
+        <name>JVM_MAX_MEMORY</name>
+      </field>
+      <field>
+        <name>JVM_MAX_MEMORY</name>
+      </field>
+      <field>
+        <name>KETTLE_VERSION</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>224</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>ORDEN</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1051,7 +1146,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>PSK_PF</schema>
-      <table>FACTURA_LINEA</table>
+      <table>ORDEN_LINEA</table>
       <key>
         <name>tipodoc</name>
         <field>tipodoc</field>
@@ -1246,64 +1341,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
+      <xloc>1136</xloc>
       <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Log</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_detailed</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>IP</name>
-      </field>
-      <field>
-        <name>HOSTNAME</name>
-      </field>
-      <field>
-        <name>TRANSFORMATION_NAME</name>
-      </field>
-      <field>
-        <name>JVM_AVAILABLE_MEMORY</name>
-      </field>
-      <field>
-        <name>JVM_FREE_MEMORY</name>
-      </field>
-      <field>
-        <name>JVM_MAX_MEMORY</name>
-      </field>
-      <field>
-        <name>JVM_MAX_MEMORY</name>
-      </field>
-      <field>
-        <name>KETTLE_VERSION</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1321,123 +1360,93 @@
     <fields>
       <field>
         <name>documento</name>
-        <rename/>
       </field>
       <field>
         <name>proveedor</name>
-        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
-        <rename/>
       </field>
       <field>
         <name>codigo</name>
-        <rename/>
       </field>
       <field>
         <name>preciounit</name>
-        <rename/>
       </field>
       <field>
         <name>montototal</name>
-        <rename/>
       </field>
       <field>
         <name>vendedor</name>
-        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
-        <rename/>
       </field>
       <field>
         <name>almacen</name>
-        <rename/>
       </field>
       <field>
         <name>nombre</name>
-        <rename/>
       </field>
       <field>
         <name>grupo</name>
-        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
-        <rename/>
       </field>
       <field>
         <name>agencia</name>
-        <rename/>
       </field>
       <field>
         <name>agenciant</name>
-        <rename/>
       </field>
       <field>
         <name>agrupado</name>
-        <rename/>
       </field>
       <field>
         <name>aux1</name>
-        <rename/>
       </field>
       <field>
         <name>baseimpo2</name>
-        <rename/>
       </field>
       <field>
         <name>baseimpo3</name>
-        <rename/>
       </field>
       <field>
         <name>baseimpo4</name>
-        <rename/>
       </field>
       <field>
         <name>baseimpo5</name>
-        <rename/>
       </field>
       <field>
         <name>baseimpo6</name>
-        <rename/>
       </field>
       <field>
         <name>impuesto2</name>
-        <rename/>
       </field>
       <field>
         <name>impuesto3</name>
-        <rename/>
       </field>
       <field>
         <name>impuesto4</name>
-        <rename/>
       </field>
       <field>
         <name>impuesto5</name>
-        <rename/>
       </field>
       <field>
         <name>impuesto6</name>
-        <rename/>
       </field>
       <field>
         <name>preciofin</name>
-        <rename/>
       </field>
       <field>
         <name>preciooriginal</name>
-        <rename/>
       </field>
       <field>
         <name>recargounit</name>
-        <rename/>
       </field>
       <field>
         <name>cantidad</name>
-        <rename/>
       </field>
       <select_unspecified>Y</select_unspecified>
     </fields>
@@ -1469,55 +1478,42 @@
     <fields>
       <field>
         <name>documento</name>
-        <rename/>
       </field>
       <field>
         <name>proveedor</name>
-        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
-        <rename/>
       </field>
       <field>
         <name>codigo</name>
-        <rename/>
       </field>
       <field>
         <name>preciounit</name>
-        <rename/>
       </field>
       <field>
         <name>montototal</name>
-        <rename/>
       </field>
       <field>
         <name>vendedor</name>
-        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
-        <rename/>
       </field>
       <field>
         <name>almacen</name>
-        <rename/>
       </field>
       <field>
         <name>nombre</name>
-        <rename/>
       </field>
       <field>
         <name>grupo</name>
-        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
-        <rename/>
       </field>
       <field>
         <name>cantidad</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1531,6 +1527,46 @@
     </remotesteps>
     <GUI>
       <xloc>512</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>String operations</name>
+    <type>StringOperations</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>documento</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper/>
+        <padding_type>left</padding_type>
+        <pad_char>0</pad_char>
+        <pad_len>8</pad_len>
+        <init_cap/>
+        <mask_xml/>
+        <digits/>
+        <remove_special_characters/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1942,86 +1978,7 @@ from
     </GUI>
   </step>
   <step>
-    <name>Get variables</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id_empresa</name>
-        <variable>${ID_EMPRESA}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>624</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>String operations</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>documento</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper/>
-        <padding_type>left</padding_type>
-        <pad_char>0</pad_char>
-        <pad_len>8</pad_len>
-        <init_cap/>
-        <mask_xml/>
-        <digits/>
-        <remove_special_characters/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>ORDEN</name>
+    <name>factura</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -2036,7 +1993,7 @@ from
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>PSK_PF</schema>
-      <table>ORDEN_LINEA</table>
+      <table>FACTURA_LINEA</table>
       <key>
         <name>tipodoc</name>
         <field>tipodoc</field>
@@ -2231,7 +2188,7 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
+      <xloc>992</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2239,7 +2196,7 @@ from
   <step_error_handling>
     <error>
       <source_step>factura</source_step>
-      <target_step>Dummy (do nothing)</target_step>
+      <target_step/>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
       <descriptions_valuename>ERROR1</descriptions_valuename>
