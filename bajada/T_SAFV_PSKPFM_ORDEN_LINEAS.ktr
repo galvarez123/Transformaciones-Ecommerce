@@ -10,12 +10,12 @@
     <parameters>
       <parameter>
         <name>ID_EMPRESA</name>
-        <default_value/>
+        <default_value>PUROFM</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.19</default_value>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -40,7 +40,7 @@
       </parameter>
       <parameter>
         <name>PUROFM_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.19</default_value>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -65,7 +65,7 @@
       </parameter>
       <parameter>
         <name>SAFV_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.28</default_value>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/05 01:01:40.972</modified_date>
+    <modified_date>2021/02/05 04:58:43.385</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -709,28 +709,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>AGENCIA ALMACEN</from>
-      <to>articulo lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>Get variables</to>
+      <to>articulo</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Get variables</from>
       <to>Add constants</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>articulo lookup</from>
-      <to>String operations</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -741,6 +726,36 @@
     <hop>
       <from>factura</from>
       <to>ORDEN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Set value</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Get variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>articulo</from>
+      <to>pid</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>pid</from>
+      <to>String operations</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Set value</from>
+      <to>Formula</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Formula</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1020,6 +1035,18 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
+      <field>
+        <name>fechadocant</name>
+        <type>Date</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1030,7 +1057,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
+      <xloc>704</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1331,6 +1358,16 @@
         <rename>tipodoc</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>fechadocant</name>
+        <rename>fechadocant</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PID</name>
+        <rename>PID</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1360,95 +1397,171 @@
     <fields>
       <field>
         <name>documento</name>
+        <rename/>
       </field>
       <field>
         <name>proveedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
+        <rename/>
       </field>
       <field>
         <name>codigo</name>
+        <rename/>
       </field>
       <field>
         <name>preciounit</name>
+        <rename/>
       </field>
       <field>
         <name>montototal</name>
+        <rename/>
       </field>
       <field>
         <name>vendedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
+        <rename/>
       </field>
       <field>
         <name>almacen</name>
+        <rename/>
       </field>
       <field>
         <name>nombre</name>
+        <rename/>
       </field>
       <field>
         <name>grupo</name>
+        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
+        <rename/>
       </field>
       <field>
         <name>agencia</name>
+        <rename/>
       </field>
       <field>
         <name>agenciant</name>
+        <rename/>
       </field>
       <field>
         <name>agrupado</name>
+        <rename/>
       </field>
       <field>
         <name>aux1</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo2</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo3</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo4</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo5</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo6</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto2</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto3</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto4</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto5</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto6</name>
+        <rename/>
       </field>
       <field>
         <name>preciofin</name>
+        <rename/>
       </field>
       <field>
         <name>preciooriginal</name>
+        <rename/>
       </field>
       <field>
         <name>recargounit</name>
+        <rename/>
       </field>
       <field>
         <name>cantidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>id_empresa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipodoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pid</name>
+        <rename/>
       </field>
       <select_unspecified>Y</select_unspecified>
+      <meta>
+        <name>fechadocant</name>
+        <rename>fechadocant</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>pid</name>
+        <rename>pid</rename>
+        <type>String</type>
+        <length>12</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1459,7 +1572,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
+      <xloc>928</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1478,42 +1591,59 @@
     <fields>
       <field>
         <name>documento</name>
+        <rename/>
       </field>
       <field>
         <name>proveedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
+        <rename/>
       </field>
       <field>
         <name>codigo</name>
+        <rename/>
       </field>
       <field>
         <name>preciounit</name>
+        <rename/>
       </field>
       <field>
         <name>montototal</name>
+        <rename/>
       </field>
       <field>
         <name>vendedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
+        <rename/>
       </field>
       <field>
         <name>almacen</name>
+        <rename/>
       </field>
       <field>
         <name>nombre</name>
+        <rename/>
       </field>
       <field>
         <name>grupo</name>
+        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
+        <rename/>
       </field>
       <field>
         <name>cantidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pid</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1526,7 +1656,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
+      <xloc>544</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1553,7 +1683,20 @@
         <pad_len>8</pad_len>
         <init_cap/>
         <mask_xml/>
-        <digits/>
+        <digits>none</digits>
+        <remove_special_characters/>
+      </field>
+      <field>
+        <in_stream_name>pid</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper/>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap/>
+        <mask_xml/>
+        <digits>only</digits>
         <remove_special_characters/>
       </field>
     </fields>
@@ -1566,7 +1709,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>464</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1912,7 +2055,7 @@ from
     </GUI>
   </step>
   <step>
-    <name>articulo lookup</name>
+    <name>articulo</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -1972,7 +2115,7 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
+      <xloc>272</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2178,6 +2321,16 @@ from
         <rename>tipodoc</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>fechadocant</name>
+        <rename>fechadocant</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PID</name>
+        <rename>PID</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -2189,6 +2342,101 @@ from
     </remotesteps>
     <GUI>
       <xloc>992</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set value</name>
+    <type>SetValueField</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>fechadocant</name>
+        <replaceby>fechadoc</replaceby>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>pid</name>
+    <type>RandomValue</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>pid</name>
+        <type>random machmacmd5</type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Formula</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>pid</field_name>
+      <formula_string>LEFT([pid];12)</formula_string>
+      <value_type>String</value_type>
+      <value_length>12</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>pid</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>

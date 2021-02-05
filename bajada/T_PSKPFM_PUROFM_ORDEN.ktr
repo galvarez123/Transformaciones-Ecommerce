@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>T_PSKPFM_PUROFM_ORDEN_LINEAS</name>
+    <name>T_PSKPFM_PUROFM_ORDEN</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/05 04:59:35.547</modified_date>
+    <modified_date>2021/02/05 05:23:05.546</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -717,7 +717,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>ADMINPUROFM</schema>
-      <table>OPERMV</table>
+      <table>OPERTI</table>
       <key>
         <name>tipodoc</name>
         <field>tipodoc</field>
@@ -731,14 +731,8 @@
         <name2/>
       </key>
       <key>
-        <name>proveedor</name>
-        <field>proveedor</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>codigo</name>
-        <field>codigo</field>
+        <name>codcliente</name>
+        <field>codcliente</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -758,163 +752,133 @@
         <update>Y</update>
       </value>
       <value>
+        <name>subtipodoc</name>
+        <rename>subtipodoc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>moneda</name>
+        <rename>moneda</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>documento</name>
         <rename>documento</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>grupo</name>
-        <rename>grupo</rename>
+        <name>codcliente</name>
+        <rename>codcliente</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>subgrupo</name>
-        <rename>subgrupo</rename>
+        <name>nombrecli</name>
+        <rename>nombrecli</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>origen</name>
-        <rename>origen</rename>
+        <name>contacto</name>
+        <rename>contacto</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>codigo</name>
-        <rename>codigo</rename>
+        <name>comprador</name>
+        <rename>comprador</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>codhijo</name>
-        <rename>codhijo</rename>
+        <name>rif</name>
+        <rename>rif</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>pid</name>
-        <rename>pid</rename>
+        <name>nit</name>
+        <rename>nit</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>nombre</name>
-        <rename>nombre</rename>
+        <name>direccion</name>
+        <rename>direccion</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>costounit</name>
-        <rename>costounit</rename>
+        <name>telefonos</name>
+        <rename>telefonos</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>preciounit</name>
-        <rename>preciounit</rename>
+        <name>tipoprecio</name>
+        <rename>tipoprecio</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>diferencia</name>
-        <rename>diferencia</rename>
+        <name>orden</name>
+        <rename>orden</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>dsctounit</name>
-        <rename>dsctounit</rename>
+        <name>emision</name>
+        <rename>emision</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>coddescuento</name>
-        <rename>coddescuento</rename>
+        <name>recepcion</name>
+        <rename>recepcion</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>dsctoprc</name>
-        <rename>dsctoprc</rename>
+        <name>vence</name>
+        <rename>vence</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>dsctoendm</name>
-        <rename>dsctoendm</rename>
+        <name>ult_interes</name>
+        <rename>ult_interes</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>dsctomtolinea</name>
-        <rename>dsctomtolinea</rename>
+        <name>fechacrea</name>
+        <rename>fechacrea</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>dsctoendp</name>
-        <rename>dsctoendp</rename>
+        <name>totcosto</name>
+        <rename>totcosto</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>preciofin</name>
-        <rename>preciofin</rename>
+        <name>totcomi</name>
+        <rename>totcomi</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>prcrecargo</name>
-        <rename>prcrecargo</rename>
+        <name>totbruto</name>
+        <rename>totbruto</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>recargounit</name>
-        <rename>recargounit</rename>
+        <name>totneto</name>
+        <rename>totneto</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>preciooriginal</name>
-        <rename>preciooriginal</rename>
+        <name>totpagos</name>
+        <rename>totpagos</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>cantidad</name>
-        <rename>cantidad</rename>
+        <name>totalfinal</name>
+        <rename>totalfinal</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>cntdevuelt</name>
-        <rename>cntdevuelt</rename>
+        <name>totimpuest</name>
+        <rename>totimpuest</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>unidevuelt</name>
-        <rename>unidevuelt</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>cntentrega</name>
-        <rename>cntentrega</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>tallas</name>
-        <rename>tallas</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>colores</name>
-        <rename>colores</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>montoneto</name>
-        <rename>montoneto</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>montototal</name>
-        <rename>montototal</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>almacen</name>
-        <rename>almacen</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>proveedor</name>
-        <rename>proveedor</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>fechadoc</name>
-        <rename>fechadoc</rename>
+        <name>totdescuen</name>
+        <rename>totdescuen</rename>
         <update>Y</update>
       </value>
       <value>
@@ -948,68 +912,23 @@
         <update>Y</update>
       </value>
       <value>
-        <name>timpueprc</name>
-        <rename>timpueprc</rename>
+        <name>recargos</name>
+        <rename>recargos</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>impu_mto</name>
-        <rename>impu_mto</rename>
+        <name>dsctoend1</name>
+        <rename>dsctoend1</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>comision</name>
-        <rename>comision</rename>
+        <name>dsctoend2</name>
+        <rename>dsctoend2</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>comisprc</name>
-        <rename>comisprc</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>vendedor</name>
-        <rename>vendedor</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>emisor</name>
-        <rename>emisor</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>usaserial</name>
-        <rename>usaserial</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>tipoprecio</name>
-        <rename>tipoprecio</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>unidad</name>
-        <rename>unidad</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>agrupado</name>
-        <rename>agrupado</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>cntagrupada</name>
-        <rename>cntagrupada</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>seimporto</name>
-        <rename>seimporto</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>desdeimpor</name>
-        <rename>desdeimpor</rename>
+        <name>dsctolinea</name>
+        <rename>dsctolinea</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1018,28 +937,53 @@
         <update>Y</update>
       </value>
       <value>
-        <name>oferta</name>
-        <rename>oferta</rename>
+        <name>estatusdoc</name>
+        <rename>estatusdoc</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>compuesto</name>
-        <rename>compuesto</rename>
+        <name>ultimopag</name>
+        <rename>ultimopag</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>usaexist</name>
-        <rename>usaexist</rename>
+        <name>diascred</name>
+        <rename>diascred</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>marca</name>
-        <rename>marca</rename>
+        <name>vendedor</name>
+        <rename>vendedor</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>aux1</name>
-        <rename>aux1</rename>
+        <name>factorcamb</name>
+        <rename>factorcamb</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>multi_div</name>
+        <rename>multi_div</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>factorreferencial</name>
+        <rename>factorreferencial</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fechanul</name>
+        <rename>fechanul</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>uanulador</name>
+        <rename>uanulador</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>uemisor</name>
+        <rename>uemisor</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1048,43 +992,193 @@
         <update>Y</update>
       </value>
       <value>
-        <name>estacionfac</name>
-        <rename>estacionfac</rename>
+        <name>sinimpuest</name>
+        <rename>sinimpuest</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>clasifica</name>
-        <rename>clasifica</rename>
+        <name>almacen</name>
+        <rename>almacen</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>cuentacont</name>
-        <rename>cuentacont</rename>
+        <name>sector</name>
+        <rename>sector</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>placa</name>
-        <rename>placa</rename>
+        <name>formafis</name>
+        <rename>formafis</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>placaod</name>
-        <rename>placaod</rename>
+        <name>al_libro</name>
+        <rename>al_libro</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>udinamica</name>
-        <rename>udinamica</rename>
+        <name>codigoret</name>
+        <rename>codigoret</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>cantref</name>
-        <rename>cantref</rename>
+        <name>retencion</name>
+        <rename>retencion</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>unidadref</name>
-        <rename>unidadref</rename>
+        <name>aux1</name>
+        <rename>aux1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>aux2</name>
+        <rename>aux2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>aplicadoa</name>
+        <rename>aplicadoa</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>referencia</name>
+        <rename>referencia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>refmanual</name>
+        <rename>refmanual</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>doc_class_id</name>
+        <rename>doc_class_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>operac</name>
+        <rename>operac</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>motanul</name>
+        <rename>motanul</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>seimporto</name>
+        <rename>seimporto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dbcr</name>
+        <rename>dbcr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>horadocum</name>
+        <rename>horadocum</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ampm</name>
+        <rename>ampm</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tranferido</name>
+        <rename>tranferido</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>procedecre</name>
+        <rename>procedecre</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>entregado</name>
+        <rename>entregado</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>vuelto</name>
+        <rename>vuelto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>integrado</name>
+        <rename>integrado</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>escredito</name>
+        <rename>escredito</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>seq_nodo</name>
+        <rename>seq_nodo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipo_nc</name>
+        <rename>tipo_nc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>porbackord</name>
+        <rename>porbackord</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>chequedev</name>
+        <rename>chequedev</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ordentrab</name>
+        <rename>ordentrab</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>compcont</name>
+        <rename>compcont</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>planillacob</name>
+        <rename>planillacob</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nodoremoto</name>
+        <rename>nodoremoto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>turno</name>
+        <rename>turno</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codvend_a</name>
+        <rename>codvend_a</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codvend_b</name>
+        <rename>codvend_b</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codvend_c</name>
+        <rename>codvend_c</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codvend_d</name>
+        <rename>codvend_d</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1103,8 +1197,8 @@
         <update>Y</update>
       </value>
       <value>
-        <name>lote</name>
-        <rename>lote</rename>
+        <name>iddocumento</name>
+        <rename>iddocumento</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1118,38 +1212,18 @@
         <update>Y</update>
       </value>
       <value>
-        <name>se_imprimio</name>
-        <rename>se_imprimio</rename>
+        <name>retencioniva</name>
+        <rename>retencioniva</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>ofertaconvenio</name>
-        <rename>ofertaconvenio</rename>
+        <name>fechayhora</name>
+        <rename>fechayhora</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>cod_servidor</name>
-        <rename>cod_servidor</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>prc_comi_servidor</name>
-        <rename>prc_comi_servidor</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>mto_comi_servidor</name>
-        <rename>mto_comi_servidor</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>checkin</name>
-        <rename>checkin</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>habi_nro</name>
-        <rename>habi_nro</rename>
+        <name>tipopersona</name>
+        <rename>tipopersona</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1158,8 +1232,58 @@
         <update>Y</update>
       </value>
       <value>
-        <name>idoferta</name>
-        <rename>idoferta</rename>
+        <name>nosujeto</name>
+        <rename>nosujeto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>serialprintf</name>
+        <rename>serialprintf</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documentofiscal</name>
+        <rename>documentofiscal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>numeroz</name>
+        <rename>numeroz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ubica</name>
+        <rename>ubica</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>usa_despacho</name>
+        <rename>usa_despacho</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>despachador</name>
+        <rename>despachador</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>despacho_nro</name>
+        <rename>despacho_nro</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>checkin</name>
+        <rename>checkin</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nureserva</name>
+        <rename>nureserva</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>grandocnum</name>
+        <rename>grandocnum</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1188,13 +1312,13 @@
         <update>Y</update>
       </value>
       <value>
-        <name>fechadocant</name>
-        <rename>fechadocant</rename>
+        <name>emisionant</name>
+        <rename>emisionant</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>fechayhora</name>
-        <rename>fechayhora</rename>
+        <name>fchyhrant</name>
+        <rename>fchyhrant</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1203,23 +1327,118 @@
         <update>Y</update>
       </value>
       <value>
+        <name>apa_nc</name>
+        <rename>apa_nc</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>documentolocal</name>
         <rename>documentolocal</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>linbloq</name>
-        <rename>linbloq</rename>
+        <name>comanda_movil</name>
+        <rename>comanda_movil</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>enviado_kmonitor</name>
-        <rename>enviado_kmonitor</rename>
+        <name>comanda_kmonitor</name>
+        <rename>comanda_kmonitor</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>se_guardo</name>
-        <rename>se_guardo</rename>
+        <name>para_llevar</name>
+        <rename>para_llevar</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>notimbrar</name>
+        <rename>notimbrar</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>antipo</name>
+        <rename>antipo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>antdoc</name>
+        <rename>antdoc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>xrequest</name>
+        <rename>xrequest</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>xresponse</name>
+        <rename>xresponse</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>parcialidad</name>
+        <rename>parcialidad</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cedcompra</name>
+        <rename>cedcompra</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subcodigo</name>
+        <rename>subcodigo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cprefijoserie</name>
+        <rename>cprefijoserie</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>contingencia</name>
+        <rename>contingencia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>precta_movil</name>
+        <rename>precta_movil</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipodocfiscal</name>
+        <rename>tipodocfiscal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cprefijodeserie</name>
+        <rename>cprefijodeserie</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cserie</name>
+        <rename>cserie</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>serieincluyeimpuesto</name>
+        <rename>serieincluyeimpuesto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>serieauto</name>
+        <rename>serieauto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>opemail</name>
+        <rename>opemail</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>refmanual2</name>
+        <rename>refmanual2</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1330,7 +1549,7 @@
     <sql>select
 *
 from
-	factura_linea
+	factura
 WHERE tipodoc ='FAC'</sql>
     <limit>0</limit>
     <lookup/>
@@ -1411,6 +1630,52 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
+        <name>subtipodoc</name>
+        <length>4</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>subtipodoc</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>moneda</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>moneda</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
         <name>documento</name>
         <length>8</length>
         <precision>-1</precision>
@@ -1434,11 +1699,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>grupo</name>
-        <length>6</length>
+        <name>codcliente</name>
+        <length>20</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>grupo</comments>
+        <comments>codcliente</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1457,11 +1722,149 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>subgrupo</name>
-        <length>6</length>
+        <name>nombrecli</name>
+        <length>100</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>subgrupo</comments>
+        <comments>nombrecli</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>contacto</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>contacto</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>comprador</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>comprador</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>rif</name>
+        <length>25</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>rif</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nit</name>
+        <length>25</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>nit</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>direccion</name>
+        <length>200</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>direccion</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>telefonos</name>
+        <length>50</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>telefonos</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1480,11 +1883,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>origen</name>
+        <name>tipoprecio</name>
         <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>origen</comments>
+        <comments>tipoprecio</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1503,11 +1906,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>codigo</name>
-        <length>25</length>
+        <name>orden</name>
+        <length>15</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>codigo</comments>
+        <comments>orden</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1524,13 +1927,13 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Date</type>
         <storagetype>normal</storagetype>
-        <name>codhijo</name>
-        <length>25</length>
+        <name>emision</name>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>codhijo</comments>
+        <comments>emision</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1547,13 +1950,13 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Date</type>
         <storagetype>normal</storagetype>
-        <name>pid</name>
-        <length>12</length>
+        <name>recepcion</name>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>pid</comments>
+        <comments>recepcion</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1570,13 +1973,59 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Date</type>
         <storagetype>normal</storagetype>
-        <name>nombre</name>
-        <length>150</length>
+        <name>vence</name>
+        <length>-1</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>nombre</comments>
+        <comments>vence</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>ult_interes</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>ult_interes</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>fechacrea</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>fechacrea</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1595,11 +2044,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>costounit</name>
-        <length>20</length>
+        <name>totcosto</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>costounit</comments>
+        <comments>totcosto</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -1618,11 +2067,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>preciounit</name>
-        <length>20</length>
+        <name>totcomi</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>preciounit</comments>
+        <comments>totcomi</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -1641,11 +2090,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>diferencia</name>
-        <length>20</length>
+        <name>totbruto</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>diferencia</comments>
+        <comments>totbruto</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -1664,11 +2113,333 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>dsctounit</name>
-        <length>20</length>
+        <name>totneto</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>dsctounit</comments>
+        <comments>totneto</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>totpagos</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>totpagos</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>totalfinal</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>totalfinal</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>totimpuest</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>totimpuest</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>totdescuen</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>totdescuen</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto1</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>impuesto1</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto2</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>impuesto2</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto3</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>impuesto3</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto4</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>impuesto4</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto5</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>impuesto5</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto6</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>impuesto6</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>recargos</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>recargos</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>dsctoend1</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>dsctoend1</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>dsctoend2</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>dsctoend2</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>dsctolinea</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>dsctolinea</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -1687,11 +2458,103 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>coddescuento</name>
+        <name>notas</name>
+        <length>715827882</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>notas</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>estatusdoc</name>
+        <length>1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>estatusdoc</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>ultimopag</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>ultimopag</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>diascred</name>
         <length>6</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>coddescuento</comments>
+        <comments>diascred</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>vendedor</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>vendedor</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1710,11 +2573,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>dsctoprc</name>
-        <length>20</length>
-        <precision>7</precision>
+        <name>factorcamb</name>
+        <length>24</length>
+        <precision>12</precision>
         <origin>Table input</origin>
-        <comments>dsctoprc</comments>
+        <comments>factorcamb</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -1731,266 +2594,59 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>dsctoendm</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>dsctoendm</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>dsctomtolinea</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>dsctomtolinea</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>dsctoendp</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>dsctoendp</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>preciofin</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>preciofin</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>prcrecargo</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>prcrecargo</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>recargounit</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>recargounit</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>preciooriginal</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>preciooriginal</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>cantidad</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>cantidad</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>cntdevuelt</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>cntdevuelt</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>unidevuelt</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>unidevuelt</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>cntentrega</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>cntentrega</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>tallas</name>
+        <name>multi_div</name>
         <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>tallas</comments>
+        <comments>multi_div</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>factorreferencial</name>
+        <length>24</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>factorreferencial</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Date</type>
+        <storagetype>normal</storagetype>
+        <name>fechanul</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>fechanul</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2009,11 +2665,57 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>colores</name>
+        <name>uanulador</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>uanulador</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>uemisor</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>uemisor</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>estacion</name>
         <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>colores</comments>
+        <comments>estacion</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2032,34 +2734,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>montoneto</name>
-        <length>20</length>
+        <name>sinimpuest</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>montoneto</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>montototal</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>montototal</comments>
+        <comments>sinimpuest</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2101,11 +2780,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>proveedor</name>
-        <length>20</length>
+        <name>sector</name>
+        <length>6</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>proveedor</comments>
+        <comments>sector</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2122,13 +2801,59 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Date</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>fechadoc</name>
-        <length>-1</length>
+        <name>formafis</name>
+        <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>fechadoc</comments>
+        <comments>formafis</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>al_libro</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>al_libro</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>codigoret</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>codigoret</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2147,11 +2872,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>impuesto1</name>
-        <length>20</length>
+        <name>retencion</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>impuesto1</comments>
+        <comments>retencion</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2170,11 +2895,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>impuesto2</name>
-        <length>20</length>
+        <name>aux1</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>impuesto2</comments>
+        <comments>aux1</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2193,172 +2918,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>impuesto3</name>
-        <length>20</length>
+        <name>aux2</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>impuesto3</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>impuesto4</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>impuesto4</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>impuesto5</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>impuesto5</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>impuesto6</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>impuesto6</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>timpueprc</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>timpueprc</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>impu_mto</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>impu_mto</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>comision</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>comision</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>comisprc</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>comisprc</comments>
+        <comments>aux2</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2377,11 +2941,103 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>vendedor</name>
+        <name>aplicadoa</name>
+        <length>11</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>aplicadoa</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>referencia</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>referencia</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>refmanual</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>refmanual</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>doc_class_id</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>doc_class_id</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>operac</name>
         <length>8</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>vendedor</comments>
+        <comments>operac</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2400,129 +3056,14 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>emisor</name>
-        <length>8</length>
+        <name>motanul</name>
+        <length>715827882</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>emisor</comments>
+        <comments>motanul</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>usaserial</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>usaserial</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>tipoprecio</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>tipoprecio</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>unidad</name>
-        <length>25</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>unidad</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>agrupado</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>agrupado</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>cntagrupada</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>cntagrupada</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2559,13 +3100,36 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>desdeimpor</name>
-        <length>11</length>
+        <name>dbcr</name>
+        <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>desdeimpor</comments>
+        <comments>dbcr</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>horadocum</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>horadocum</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2582,59 +3146,13 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>notas</name>
-        <length>715827882</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>notas</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>oferta</name>
-        <length>5</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>oferta</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>compuesto</name>
+        <name>ampm</name>
         <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>compuesto</comments>
+        <comments>ampm</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2653,34 +3171,57 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>usaexist</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>usaexist</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>marca</name>
+        <name>tranferido</name>
         <length>5</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>marca</comments>
+        <comments>tranferido</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>procedecre</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>procedecre</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>entregado</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>entregado</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2699,11 +3240,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
-        <name>aux1</name>
-        <length>20</length>
+        <name>vuelto</name>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
-        <comments>aux1</comments>
+        <comments>vuelto</comments>
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
@@ -2720,37 +3261,14 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>estacion</name>
-        <length>3</length>
+        <name>integrado</name>
+        <length>5</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>estacion</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>estacionfac</name>
-        <length>3</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>estacionfac</comments>
-        <conversion_Mask/>
+        <comments>integrado</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -2768,11 +3286,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>clasifica</name>
-        <length>3</length>
+        <name>escredito</name>
+        <length>5</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>clasifica</comments>
+        <comments>escredito</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2791,11 +3309,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>cuentacont</name>
-        <length>40</length>
+        <name>seq_nodo</name>
+        <length>10</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>cuentacont</comments>
+        <comments>seq_nodo</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2814,34 +3332,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>placa</name>
-        <length>20</length>
+        <name>tipo_nc</name>
+        <length>3</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>placa</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>placaod</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>placaod</comments>
+        <comments>tipo_nc</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2860,11 +3355,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>udinamica</name>
-        <length>3</length>
+        <name>porbackord</name>
+        <length>5</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>udinamica</comments>
+        <comments>porbackord</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2881,16 +3376,16 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>BigNumber</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>cantref</name>
-        <length>20</length>
-        <precision>7</precision>
+        <name>chequedev</name>
+        <length>5</length>
+        <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>cantref</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
+        <comments>chequedev</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -2906,11 +3401,195 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>unidadref</name>
-        <length>15</length>
+        <name>ordentrab</name>
+        <length>8</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>unidadref</comments>
+        <comments>ordentrab</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>compcont</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>compcont</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>planillacob</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>planillacob</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nodoremoto</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>nodoremoto</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>turno</name>
+        <length>2</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>turno</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>codvend_a</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>codvend_a</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>codvend_b</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>codvend_b</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>codvend_c</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>codvend_c</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>codvend_d</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>codvend_d</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -2930,7 +3609,7 @@ WHERE tipodoc ='FAC'</sql>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>baseimpo1</name>
-        <length>20</length>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
         <comments>baseimpo1</comments>
@@ -2953,7 +3632,7 @@ WHERE tipodoc ='FAC'</sql>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>baseimpo2</name>
-        <length>20</length>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
         <comments>baseimpo2</comments>
@@ -2976,7 +3655,7 @@ WHERE tipodoc ='FAC'</sql>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>baseimpo3</name>
-        <length>20</length>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
         <comments>baseimpo3</comments>
@@ -2998,11 +3677,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>lote</name>
-        <length>30</length>
+        <name>iddocumento</name>
+        <length>8</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>lote</comments>
+        <comments>iddocumento</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3022,7 +3701,7 @@ WHERE tipodoc ='FAC'</sql>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>imp_nacional</name>
-        <length>20</length>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
         <comments>imp_nacional</comments>
@@ -3045,7 +3724,7 @@ WHERE tipodoc ='FAC'</sql>
         <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>imp_producc</name>
-        <length>20</length>
+        <length>24</length>
         <precision>7</precision>
         <origin>Table input</origin>
         <comments>imp_producc</comments>
@@ -3065,152 +3744,60 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>retencioniva</name>
+        <length>20</length>
+        <precision>7</precision>
+        <origin>Table input</origin>
+        <comments>retencioniva</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Timestamp</type>
+        <storagetype>normal</storagetype>
+        <name>fechayhora</name>
+        <length>0</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>fechayhora</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>se_imprimio</name>
+        <name>tipopersona</name>
         <length>5</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>se_imprimio</comments>
+        <comments>tipopersona</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>ofertaconvenio</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>ofertaconvenio</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>cod_servidor</name>
-        <length>8</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>cod_servidor</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>prc_comi_servidor</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>prc_comi_servidor</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>BigNumber</type>
-        <storagetype>normal</storagetype>
-        <name>mto_comi_servidor</name>
-        <length>20</length>
-        <precision>7</precision>
-        <origin>Table input</origin>
-        <comments>mto_comi_servidor</comments>
-        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
-        <decimal_symbol>.</decimal_symbol>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>checkin</name>
-        <length>12</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>checkin</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_VE</date_format_locale>
-        <date_format_timezone>America/Caracas</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>habi_nro</name>
-        <length>12</length>
-        <precision>-1</precision>
-        <origin>Table input</origin>
-        <comments>habi_nro</comments>
-        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -3249,13 +3836,243 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>nosujeto</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>nosujeto</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>idoferta</name>
+        <name>serialprintf</name>
+        <length>25</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>serialprintf</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>documentofiscal</name>
+        <length>200</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>documentofiscal</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>numeroz</name>
         <length>8</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>idoferta</comments>
+        <comments>numeroz</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>ubica</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>ubica</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>usa_despacho</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>usa_despacho</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>despachador</name>
+        <length>15</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>despachador</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>despacho_nro</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>despacho_nro</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>checkin</name>
+        <length>12</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>checkin</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nureserva</name>
+        <length>12</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>nureserva</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>grandocnum</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>grandocnum</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3389,11 +4206,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Date</type>
         <storagetype>normal</storagetype>
-        <name>fechadocant</name>
+        <name>emisionant</name>
         <length>-1</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>fechadocant</comments>
+        <comments>emisionant</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3412,11 +4229,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Timestamp</type>
         <storagetype>normal</storagetype>
-        <name>fechayhora</name>
+        <name>fchyhrant</name>
         <length>0</length>
         <precision>-1</precision>
         <origin>Table input</origin>
-        <comments>fechayhora</comments>
+        <comments>fchyhrant</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3456,10 +4273,33 @@ WHERE tipodoc ='FAC'</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>apa_nc</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>apa_nc</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>documentolocal</name>
-        <length>20</length>
+        <length>200</length>
         <precision>-1</precision>
         <origin>Table input</origin>
         <comments>documentolocal</comments>
@@ -3481,11 +4321,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>linbloq</name>
+        <name>comanda_movil</name>
         <length>2</length>
         <precision>0</precision>
         <origin>Table input</origin>
-        <comments>linbloq</comments>
+        <comments>comanda_movil</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3504,11 +4344,11 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>enviado_kmonitor</name>
+        <name>comanda_kmonitor</name>
         <length>2</length>
         <precision>0</precision>
         <origin>Table input</origin>
-        <comments>enviado_kmonitor</comments>
+        <comments>comanda_kmonitor</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -3527,12 +4367,426 @@ WHERE tipodoc ='FAC'</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>se_guardo</name>
+        <name>para_llevar</name>
         <length>2</length>
         <precision>0</precision>
         <origin>Table input</origin>
-        <comments>se_guardo</comments>
+        <comments>para_llevar</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>notimbrar</name>
+        <length>2</length>
+        <precision>0</precision>
+        <origin>Table input</origin>
+        <comments>notimbrar</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>antipo</name>
+        <length>3</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>antipo</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>antdoc</name>
+        <length>8</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>antdoc</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>xrequest</name>
+        <length>715827882</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>xrequest</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>xresponse</name>
+        <length>715827882</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>xresponse</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>parcialidad</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>parcialidad</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>cedcompra</name>
+        <length>14</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>cedcompra</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>subcodigo</name>
+        <length>6</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>subcodigo</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>cprefijoserie</name>
+        <length>4</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>cprefijoserie</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>contingencia</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>contingencia</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>precta_movil</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>precta_movil</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>tipodocfiscal</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>tipodocfiscal</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>cprefijodeserie</name>
+        <length>4</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>cprefijodeserie</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>cserie</name>
+        <length>2</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>cserie</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>serieincluyeimpuesto</name>
+        <length>2</length>
+        <precision>0</precision>
+        <origin>Table input</origin>
+        <comments>serieincluyeimpuesto</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Boolean</type>
+        <storagetype>normal</storagetype>
+        <name>serieauto</name>
+        <length>-1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>serieauto</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>opemail</name>
+        <length>1024</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>opemail</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>refmanual2</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>refmanual2</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
