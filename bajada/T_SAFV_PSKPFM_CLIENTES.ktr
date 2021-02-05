@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/05 01:44:36.090</modified_date>
+    <modified_date>2021/02/05 01:49:00.637</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2029,13 +2029,13 @@
       <value>
         <name>id_zona</name>
         <rename>id_zona</rename>
-        <default>000</default>
+        <default>999999</default>
         <type>String</type>
       </value>
       <value>
         <name>id_sector</name>
         <rename>id_sector</rename>
-        <default>000</default>
+        <default/>
         <type>String</type>
       </value>
     </lookup>
