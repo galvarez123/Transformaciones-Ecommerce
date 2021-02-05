@@ -15,7 +15,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
-        <default_value>10.1.240.19</default_value>
+        <default_value/>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -40,7 +40,7 @@
       </parameter>
       <parameter>
         <name>PUROFM_HOST_NAME</name>
-        <default_value>10.1.240.19</default_value>
+        <default_value/>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -65,7 +65,7 @@
       </parameter>
       <parameter>
         <name>SAFV_HOST_NAME</name>
-        <default_value>10.1.240.28</default_value>
+        <default_value/>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/04 15:01:09.341</modified_date>
+    <modified_date>2021/02/05 01:30:23.979</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2054,6 +2054,45 @@
     </GUI>
   </step>
   <step>
+    <name>Get variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_empresa</name>
+        <variable>${ID_EMPRESA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>6</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Insert / update</name>
     <type>InsertUpdate</type>
     <description/>
@@ -3533,49 +3572,10 @@ from
       <draw>Y</draw>
     </GUI>
   </step>
-  <step>
-    <name>Get variables</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id_empresa</name>
-        <variable>${ID_EMPRESA}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>6</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step_error_handling>
     <error>
       <source_step>Insert / update</source_step>
-      <target_step>Dummy (do nothing)</target_step>
+      <target_step/>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
       <descriptions_valuename>ERROR1</descriptions_valuename>
