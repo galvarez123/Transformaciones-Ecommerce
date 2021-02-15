@@ -20,7 +20,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_PORT</name>
-        <default_value/>
+        <default_value>3306</default_value>
         <description>3306</description>
       </parameter>
       <parameter>
@@ -45,7 +45,7 @@
       </parameter>
       <parameter>
         <name>SAFV_PORT</name>
-        <default_value/>
+        <default_value>3306</default_value>
         <description>3306</description>
       </parameter>
       <parameter>
@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/03 23:38:49.656</modified_date>
+    <modified_date>2021/02/15 15:09:51.912</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -845,7 +845,7 @@
         <in_stream_name>principio</in_stream_name>
         <out_stream_name/>
         <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
+        <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
@@ -869,6 +869,19 @@
       </field>
       <field>
         <in_stream_name>destacado</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>etiquetas</in_stream_name>
         <out_stream_name/>
         <trim_type>both</trim_type>
         <lower_upper>lower</lower_upper>
@@ -1042,6 +1055,14 @@
       <field>
         <column_name>agencia</column_name>
         <stream_name>agencia</stream_name>
+      </field>
+      <field>
+        <column_name>etiquetas</column_name>
+        <stream_name>etiquetas</stream_name>
+      </field>
+      <field>
+        <column_name>descripcion</column_name>
+        <stream_name>descripcion</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1222,7 +1243,9 @@
 	barras,
 	descuento,
 	controlado,
-	destacado
+	destacado,
+	etiquetas,
+	descripcion
 from
 	existencia a
 where almacen in ('M1','V1','C1','B1')
@@ -1309,7 +1332,7 @@ and descontinuado =0
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>grupo</name>
-        <length>200</length>
+        <length>80</length>
         <precision>-1</precision>
         <origin>existencia</origin>
         <comments>grupo</comments>
@@ -1543,6 +1566,52 @@ and descontinuado =0
         <precision>-1</precision>
         <origin>existencia</origin>
         <comments>destacado</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>etiquetas</name>
+        <length>715827882</length>
+        <precision>-1</precision>
+        <origin>existencia</origin>
+        <comments>etiquetas</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>descripcion</name>
+        <length>715827882</length>
+        <precision>-1</precision>
+        <origin>existencia</origin>
+        <comments>descripcion</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>

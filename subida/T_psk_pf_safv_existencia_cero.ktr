@@ -20,7 +20,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_PORT</name>
-        <default_value/>
+        <default_value>3306</default_value>
         <description>3306</description>
       </parameter>
       <parameter>
@@ -45,7 +45,7 @@
       </parameter>
       <parameter>
         <name>SAFV_PORT</name>
-        <default_value/>
+        <default_value>3306</default_value>
         <description>3306</description>
       </parameter>
       <parameter>
@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/03 23:39:21.481</modified_date>
+    <modified_date>2021/02/15 15:09:47.644</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -929,6 +929,19 @@
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
+      <field>
+        <in_stream_name>etiquetas</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>lower</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1092,6 +1105,14 @@
         <column_name>agencia</column_name>
         <stream_name>agencia</stream_name>
       </field>
+      <field>
+        <column_name>etiquetas</column_name>
+        <stream_name>etiquetas</stream_name>
+      </field>
+      <field>
+        <column_name>descripcion</column_name>
+        <stream_name>descripcion</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1219,7 +1240,9 @@
 	'000000' barras,
 	descuento,
 	controlado,
-	destacado
+	destacado,
+	etiquetas,
+	descripcion
 from
 	existencia a
 group by
@@ -1233,7 +1256,9 @@ group by
 	precio,
 	descuento,
 	controlado,
-	destacado</sql>
+	destacado,
+	etiquetas,
+	descripcion</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1291,7 +1316,7 @@ group by
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>grupo</name>
-        <length>200</length>
+        <length>80</length>
         <precision>-1</precision>
         <origin>existencia</origin>
         <comments>grupo</comments>
