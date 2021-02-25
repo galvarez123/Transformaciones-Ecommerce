@@ -10,17 +10,17 @@
     <parameters>
       <parameter>
         <name>ID_EMPRESA</name>
-        <default_value/>
+        <default_value>PUROFM</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.19</default_value>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
         <name>PSK_PF_PASSWORD</name>
-        <default_value/>
+        <default_value>cambridge</default_value>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -30,22 +30,22 @@
       </parameter>
       <parameter>
         <name>PSK_PF_SCHEMA</name>
-        <default_value/>
+        <default_value>PSK_PF</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>PSK_PF_USER</name>
-        <default_value/>
+        <default_value>pskloud</default_value>
         <description>pskloud</description>
       </parameter>
       <parameter>
         <name>PUROFM_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.19</default_value>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
         <name>PUROFM_PASSWORD</name>
-        <default_value/>
+        <default_value>cambridge</default_value>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -55,22 +55,22 @@
       </parameter>
       <parameter>
         <name>PUROFM_SCHEMA</name>
-        <default_value/>
+        <default_value>ADMINPUROFM</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>PUROFM_USER</name>
-        <default_value/>
+        <default_value>pskloud</default_value>
         <description>pskloud</description>
       </parameter>
       <parameter>
         <name>SAFV_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.28</default_value>
         <description>10.1.240.19</description>
       </parameter>
       <parameter>
         <name>SAFV_PASSWORD</name>
-        <default_value/>
+        <default_value>cambridge</default_value>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -80,12 +80,12 @@
       </parameter>
       <parameter>
         <name>SAFV_SCHEMA</name>
-        <default_value/>
+        <default_value>SAFV</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>SAFV_USER</name>
-        <default_value/>
+        <default_value>pskloud</default_value>
         <description>pskloud</description>
       </parameter>
     </parameters>
@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/02/17 11:35:00.538</modified_date>
+    <modified_date>2021/02/24 14:08:10.309</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1047,6 +1047,18 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
+      <field>
+        <name>usaserial</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>2</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1406,6 +1418,11 @@
         <rename>timpueprc</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>usaserial</name>
+        <rename>usaserial</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1569,6 +1586,10 @@
         <name>timpueprc</name>
         <rename/>
       </field>
+      <field>
+        <name>usaserial</name>
+        <rename/>
+      </field>
       <select_unspecified>Y</select_unspecified>
       <meta>
         <name>fechadocant</name>
@@ -1633,63 +1654,48 @@
     <fields>
       <field>
         <name>documento</name>
-        <rename/>
       </field>
       <field>
         <name>proveedor</name>
-        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
-        <rename/>
       </field>
       <field>
         <name>codigo</name>
-        <rename/>
       </field>
       <field>
         <name>preciounit</name>
-        <rename/>
       </field>
       <field>
         <name>montototal</name>
-        <rename/>
       </field>
       <field>
         <name>vendedor</name>
-        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
-        <rename/>
       </field>
       <field>
         <name>almacen</name>
-        <rename/>
       </field>
       <field>
         <name>nombre</name>
-        <rename/>
       </field>
       <field>
         <name>grupo</name>
-        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
-        <rename/>
       </field>
       <field>
         <name>cantidad</name>
-        <rename/>
       </field>
       <field>
         <name>pid</name>
-        <rename/>
       </field>
       <field>
         <name>timpueprc</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2406,6 +2412,11 @@ from
       <value>
         <name>PID</name>
         <rename>PID</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>usaserial</name>
+        <rename>usaserial</rename>
         <update>Y</update>
       </value>
     </lookup>
