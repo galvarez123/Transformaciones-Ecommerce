@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/03/03 12:26:02.848</modified_date>
+    <modified_date>2021/03/03 12:39:56.599</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -704,11 +704,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Table input</from>
-      <to>AGENCIA ALMACEN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>AGENCIA ALMACEN</from>
       <to>articulo</to>
       <enabled>Y</enabled>
@@ -766,6 +761,11 @@
     <hop>
       <from>Formula 2</from>
       <to>pid</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>AGENCIA ALMACEN</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1433,6 +1433,11 @@
         <rename>usaserial</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>lote</name>
+        <rename>lote</rename>
+        <update>N</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1462,108 +1467,147 @@
     <fields>
       <field>
         <name>documento</name>
+        <rename/>
       </field>
       <field>
         <name>proveedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
+        <rename/>
       </field>
       <field>
         <name>codigo</name>
+        <rename/>
       </field>
       <field>
         <name>preciounit</name>
+        <rename/>
       </field>
       <field>
         <name>montototal</name>
+        <rename/>
       </field>
       <field>
         <name>vendedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
+        <rename/>
       </field>
       <field>
         <name>almacen</name>
+        <rename/>
       </field>
       <field>
         <name>nombre</name>
+        <rename/>
       </field>
       <field>
         <name>grupo</name>
+        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
+        <rename/>
       </field>
       <field>
         <name>agencia</name>
+        <rename/>
       </field>
       <field>
         <name>agenciant</name>
+        <rename/>
       </field>
       <field>
         <name>agrupado</name>
+        <rename/>
       </field>
       <field>
         <name>aux1</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo2</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo3</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo4</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo5</name>
+        <rename/>
       </field>
       <field>
         <name>baseimpo6</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto2</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto3</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto4</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto5</name>
+        <rename/>
       </field>
       <field>
         <name>impuesto6</name>
+        <rename/>
       </field>
       <field>
         <name>preciofin</name>
+        <rename/>
       </field>
       <field>
         <name>preciooriginal</name>
+        <rename/>
       </field>
       <field>
         <name>recargounit</name>
+        <rename/>
       </field>
       <field>
         <name>cantidad</name>
+        <rename/>
       </field>
       <field>
         <name>id_empresa</name>
+        <rename/>
       </field>
       <field>
         <name>tipodoc</name>
+        <rename/>
       </field>
       <field>
         <name>pid</name>
+        <rename/>
       </field>
       <field>
         <name>timpueprc</name>
+        <rename/>
       </field>
       <field>
         <name>usaserial</name>
+        <rename/>
+      </field>
+      <field>
+        <name>lote</name>
+        <rename/>
       </field>
       <select_unspecified>Y</select_unspecified>
       <meta>
@@ -1629,48 +1673,67 @@
     <fields>
       <field>
         <name>documento</name>
+        <rename/>
       </field>
       <field>
         <name>proveedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
+        <rename/>
       </field>
       <field>
         <name>codigo</name>
+        <rename/>
       </field>
       <field>
         <name>preciounit</name>
+        <rename/>
       </field>
       <field>
         <name>montototal</name>
+        <rename/>
       </field>
       <field>
         <name>vendedor</name>
+        <rename/>
       </field>
       <field>
         <name>fechayhora</name>
+        <rename/>
       </field>
       <field>
         <name>almacen</name>
+        <rename/>
       </field>
       <field>
         <name>nombre</name>
+        <rename/>
       </field>
       <field>
         <name>grupo</name>
+        <rename/>
       </field>
       <field>
         <name>subgrupo</name>
+        <rename/>
       </field>
       <field>
         <name>cantidad</name>
+        <rename/>
       </field>
       <field>
         <name>pid</name>
+        <rename/>
       </field>
       <field>
         <name>timpueprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>lote</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1857,7 +1920,8 @@ preciounit,
 montototal,
 vendedor,
 fechayhora,
-cantidad
+cantidad,
+lote
 from
 	orden_detalle 
 	where
@@ -2110,7 +2174,7 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>32</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2396,6 +2460,11 @@ from
         <name>usaserial</name>
         <rename>usaserial</rename>
         <update>Y</update>
+      </value>
+      <value>
+        <name>lote</name>
+        <rename>lote</rename>
+        <update>N</update>
       </value>
     </lookup>
     <attributes/>
