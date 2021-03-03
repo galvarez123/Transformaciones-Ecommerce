@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/03/01 16:59:40.755</modified_date>
+    <modified_date>2021/03/03 12:26:02.848</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -739,11 +739,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>articulo</from>
-      <to>pid</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>pid</from>
       <to>String operations</to>
       <enabled>Y</enabled>
@@ -756,6 +751,21 @@
     <hop>
       <from>Formula</from>
       <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>articulo</from>
+      <to>Get Lote</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get Lote</from>
+      <to>Formula 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Formula 2</from>
+      <to>pid</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1069,7 +1079,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>928</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1102,7 +1112,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
+      <xloc>1088</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1141,7 +1151,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>848</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1433,7 +1443,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
+      <xloc>1360</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1600,7 +1610,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
+      <xloc>1152</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1673,7 +1683,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>768</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1704,7 +1714,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
+      <xloc>1008</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1757,7 +1767,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>688</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2397,7 +2407,7 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
+      <xloc>1216</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2428,7 +2438,90 @@ from
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>592</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get Lote</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PUROFM</connection>
+    <rowlimit>0</rowlimit>
+    <sql>select
+ lote as lotenew
+from
+	artilotes a2
+where
+	a2.codigoart = ?
+	and almacen = ?
+	and a2.cantidad > a2.consumido
+order by
+	vence asc
+	limit 1</sql>
+    <outer_join>Y</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+      <field>
+        <name>codigo</name>
+        <type>String</type>
+      </field>
+      <field>
+        <name>almacen</name>
+        <type>String</type>
+      </field>
+    </parameter>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Formula 2</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>lote</field_name>
+      <formula_string>if(ISTEXT([lotenew]);[lotenew];"Sin Lote")</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field>lote</replace_field>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
