@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/03/03 12:30:27.374</modified_date>
+    <modified_date>2021/03/03 13:45:03.064</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -2323,6 +2323,7 @@ join factura f
 on a.agencia = f.agencia 
 and a.documento =f.documento 
 and a.proveedor = f.codcliente
+and f.tipodoc ='fac'
 left join adminpurofm.opermv o
 on a.agencia = o.agencia 
 and a.documento =o.documento 
@@ -2331,6 +2332,7 @@ and a.codigo = o.codigo
 where 
 o.documento is null
 and a.tipodoc ='fac'
+
 </sql>
     <limit>0</limit>
     <lookup/>
