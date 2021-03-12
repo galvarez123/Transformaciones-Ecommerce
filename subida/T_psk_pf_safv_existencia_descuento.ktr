@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/03/11 12:21:34.833</modified_date>
+    <modified_date>2021/03/12 14:47:06.723</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -780,24 +780,24 @@
     </partitioning>
     <formula>
       <field_name>lunes</field_name>
-      <formula_string>IF([lunes]=1;"0";100)</formula_string>
-      <value_type>Integer</value_type>
+      <formula_string>IF([lunes]=1;"0";"100")</formula_string>
+      <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <replace_field>lunes</replace_field>
     </formula>
     <formula>
       <field_name>martes</field_name>
-      <formula_string>IF([martes]=1;1;100)</formula_string>
-      <value_type>Integer</value_type>
+      <formula_string>IF([martes]=1;"1";"100")</formula_string>
+      <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <replace_field>martes</replace_field>
     </formula>
     <formula>
       <field_name>miercoles</field_name>
-      <formula_string>IF([miercoles]=1;2;100)</formula_string>
-      <value_type>Integer</value_type>
+      <formula_string>IF([miercoles]=1;"2";"100")</formula_string>
+      <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <replace_field>miercoles</replace_field>
@@ -812,7 +812,7 @@
     </formula>
     <formula>
       <field_name>viernes</field_name>
-      <formula_string>IF([viernes]=1;4;100)</formula_string>
+      <formula_string>IF([viernes]=1;"4";"100")</formula_string>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -820,7 +820,7 @@
     </formula>
     <formula>
       <field_name>sabado</field_name>
-      <formula_string>IF([sabado]=1;5;100)</formula_string>
+      <formula_string>IF([sabado]=1;"5";"100")</formula_string>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -828,7 +828,7 @@
     </formula>
     <formula>
       <field_name>domingo</field_name>
-      <formula_string>IF([domingo]=1;6;100)</formula_string>
+      <formula_string>IF([domingo]=1;"6";"100")</formula_string>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1249,7 +1249,7 @@ dias_semana,
 codigoart,
 descuento
 from
-	psk_pf.descuento a
+	descuento a
 where descuento>0
 
 
