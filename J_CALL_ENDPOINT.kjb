@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/03/19 11:56:24.757</modified_date>
+  <modified_date>2021/03/19 12:32:59.396</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
@@ -27,7 +27,7 @@
     </parameter>
     <parameter>
       <name>llamada</name>
-      <default_value/>
+      <default_value>prueba</default_value>
       <description>prueba</description>
     </parameter>
   </parameters>
