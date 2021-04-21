@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.22</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -25,7 +25,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_SCHEMA</name>
-        <default_value/>
+        <default_value>psk_droeca</default_value>
         <description>PSK_PF</description>
       </parameter>
       <parameter>
@@ -35,7 +35,7 @@
       </parameter>
       <parameter>
         <name>SAFV_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.28</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -50,7 +50,7 @@
       </parameter>
       <parameter>
         <name>SAFV_SCHEMA</name>
-        <default_value/>
+        <default_value>DAFV</default_value>
         <description>SAFV</description>
       </parameter>
       <parameter>
@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/04/19 12:24:43.928</modified_date>
+    <modified_date>2021/04/21 14:13:15.989</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -625,11 +625,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Database join</from>
-      <to>Table output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort rows 2</from>
       <to>agencias 2</to>
       <enabled>Y</enabled>
@@ -647,6 +642,11 @@
     <hop>
       <from>Table output</from>
       <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Database join</from>
+      <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1121,6 +1121,14 @@
         <column_name>descuento2</column_name>
         <stream_name>descuento2</stream_name>
       </field>
+      <field>
+        <column_name>impuesto</column_name>
+        <stream_name>impuesto</stream_name>
+      </field>
+      <field>
+        <column_name>clase_impuesto</column_name>
+        <stream_name>clase_impuesto</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1253,7 +1261,8 @@
 	descripcion,
 	precio2,
 	descuento2,
-	impuesto
+	impuesto,
+	clase_impuesto
 from
 	existencia a
 group by
