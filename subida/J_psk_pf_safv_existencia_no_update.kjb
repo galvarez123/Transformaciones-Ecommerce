@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/04/19 12:27:57.569</modified_date>
+  <modified_date>2021/04/23 14:33:00.286</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
@@ -508,7 +508,7 @@
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>T_psk_pf_safv_existencia</transname>
+      <transname>T_psk_droeca_dafv_existencia</transname>
       <directory>/purofarma/subida</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -677,7 +677,7 @@
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>T_psk_pf_safv_existencia_cero</transname>
+      <transname>T_psk_droeca_dafv_existencia_cero</transname>
       <directory>/purofarma/subida</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>T_psk_pf_safv_existencia_cero</name>
+    <name>T_psk_droeca_dafv_existencia</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.22</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -25,7 +25,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_SCHEMA</name>
-        <default_value/>
+        <default_value>PSK_DROECA</default_value>
         <description>PSK_PF</description>
       </parameter>
       <parameter>
@@ -35,7 +35,7 @@
       </parameter>
       <parameter>
         <name>SAFV_HOST_NAME</name>
-        <default_value/>
+        <default_value>10.1.240.28</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -50,7 +50,7 @@
       </parameter>
       <parameter>
         <name>SAFV_SCHEMA</name>
-        <default_value/>
+        <default_value>DAFV</default_value>
         <description>SAFV</description>
       </parameter>
       <parameter>
@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/04/23 14:38:37.298</modified_date>
+    <modified_date>2021/04/23 14:32:06.075</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -621,92 +621,30 @@
     </hop>
     <hop>
       <from>String operations</from>
-      <to>Database join</to>
+      <to>agencia 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 2</from>
-      <to>agencias 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>agencias 2</from>
-      <to>Write to log 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table output</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table output</from>
-      <to>Dummy (do nothing)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Database join</from>
+      <from>agencia 2</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Table output</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>agencias</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>agencias</from>
+      <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>Database join</name>
-    <type>DBJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>SAFV</connection>
-    <rowlimit>0</rowlimit>
-    <sql>SELECT AGENCIA FROM AGENCIAS</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>N</replace_vars>
-    <parameter>
-    </parameter>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>896</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Log</name>
     <type>WriteToLog</type>
@@ -764,7 +702,7 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 2</name>
+    <name>Sort rows</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -808,8 +746,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>128</yloc>
+      <xloc>848</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -881,7 +819,7 @@
         <in_stream_name>referencia</in_stream_name>
         <out_stream_name/>
         <trim_type>both</trim_type>
-        <lower_upper>upper</lower_upper>
+        <lower_upper>lower</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
         <pad_len/>
@@ -912,6 +850,19 @@
         <pad_char/>
         <pad_len/>
         <init_cap>Y</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>barras</in_stream_name>
+        <out_stream_name/>
+        <trim_type>both</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
         <mask_xml>None</mask_xml>
         <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
@@ -1024,7 +975,7 @@
     <name>Table output</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1035,7 +986,7 @@
     <schema>${SAFV_SCHEMA}</schema>
     <table>existencia</table>
     <commit>10000</commit>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
@@ -1121,6 +1072,18 @@
         <column_name>descuento2</column_name>
         <stream_name>descuento2</stream_name>
       </field>
+      <field>
+        <column_name>impuesto</column_name>
+        <stream_name>impuesto</stream_name>
+      </field>
+      <field>
+        <column_name>clase_impuesto</column_name>
+        <stream_name>clase_impuesto</stream_name>
+      </field>
+      <field>
+        <column_name>situacion_fiscal</column_name>
+        <stream_name>situacion_fiscal</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1131,13 +1094,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
+      <xloc>704</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Write to log 2</name>
+    <name>Write to log</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -1147,14 +1110,17 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <loglevel>log_level_basic</loglevel>
+    <loglevel>log_level_error</loglevel>
     <displayHeader>Y</displayHeader>
     <limitRows>N</limitRows>
     <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>INSERT EXIST CERO</logmessage>
+    <logmessage>ERROR INSERT</logmessage>
     <fields>
       <field>
         <name>codigo</name>
+      </field>
+      <field>
+        <name>barras</name>
       </field>
       <field>
         <name>resumen</name>
@@ -1169,13 +1135,61 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>128</yloc>
+      <xloc>1152</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>agencias 2</name>
+    <name>agencia 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>SAFV</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>${SAFV_SCHEMA}</schema>
+      <table>agencias</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>almacen</name>
+        <field>almacen</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>agencia</name>
+        <rename>agencia</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>agencias</name>
     <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
@@ -1218,8 +1232,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>128</yloc>
+      <xloc>960</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1236,6 +1250,7 @@
     </partitioning>
     <connection>PSK_PF</connection>
     <sql>select
+	almacen ,
 	codigo,
 	nombre,
 	grupo ,
@@ -1243,7 +1258,7 @@
 	referencia,
 	marca,
 	principio,
-	0 existencia,
+	existencia,
 	precio,
 	barras,
 	descuento,
@@ -1252,23 +1267,15 @@
 	etiquetas,
 	descripcion,
 	precio2,
-	descuento2
+	descuento2,
+	clase_impuesto,
+	situacion_fiscal,
+ROUND(impuesto ,2) impuesto
 from
 	existencia a
-group by
-	codigo,
-	nombre,
-	grupo ,
-	subgrupo ,
-	referencia,
-	marca,
-	principio,
-	precio,
-	descuento,
-	controlado,
-	destacado,
-	etiquetas,
-	descripcion</sql>
+where precio2>0
+and descontinuado =0
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1276,6 +1283,29 @@ group by
     <lazy_conversion_active>N</lazy_conversion_active>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>almacen</name>
+        <length>2</length>
+        <precision>-1</precision>
+        <origin>existencia</origin>
+        <comments>almacen</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
@@ -1438,16 +1468,16 @@ group by
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
+        <type>BigNumber</type>
         <storagetype>normal</storagetype>
         <name>existencia</name>
-        <length>15</length>
-        <precision>0</precision>
+        <length>20</length>
+        <precision>7</precision>
         <origin>existencia</origin>
         <comments>existencia</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -1667,6 +1697,75 @@ group by
         <date_format_timezone>America/Caracas</date_format_timezone>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>clase_impuesto</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>existencia</origin>
+        <comments>clase_impuesto</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>situacion_fiscal</name>
+        <length>9</length>
+        <precision>-1</precision>
+        <origin>existencia</origin>
+        <comments>situacion_fiscal</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>impuesto</name>
+        <length>19</length>
+        <precision>2</precision>
+        <origin>existencia</origin>
+        <comments>impuesto</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
     </row-meta>
     <attributes/>
     <cluster_schema/>
@@ -1685,7 +1784,7 @@ group by
   <step_error_handling>
     <error>
       <source_step>Table output</source_step>
-      <target_step>Dummy (do nothing)</target_step>
+      <target_step>Sort rows</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
       <descriptions_valuename/>
