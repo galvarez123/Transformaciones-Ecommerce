@@ -20,7 +20,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_PASSWORD</name>
-        <default_value/>
+        <default_value>cambridge</default_value>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -30,12 +30,12 @@
       </parameter>
       <parameter>
         <name>PSK_PF_SCHEMA</name>
-        <default_value>PSK_PF</default_value>
+        <default_value/>
         <description/>
       </parameter>
       <parameter>
         <name>PSK_PF_USER</name>
-        <default_value/>
+        <default_value>pskloud</default_value>
         <description>pskloud</description>
       </parameter>
       <parameter>
@@ -45,7 +45,7 @@
       </parameter>
       <parameter>
         <name>PUROFM_PASSWORD</name>
-        <default_value/>
+        <default_value>cambridge</default_value>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -55,12 +55,12 @@
       </parameter>
       <parameter>
         <name>PUROFM_SCHEMA</name>
-        <default_value>ADMINPUROFM</default_value>
+        <default_value/>
         <description/>
       </parameter>
       <parameter>
         <name>PUROFM_USER</name>
-        <default_value/>
+        <default_value>pskloud</default_value>
         <description>pskloud</description>
       </parameter>
       <parameter>
@@ -70,7 +70,7 @@
       </parameter>
       <parameter>
         <name>SAFV_PASSWORD</name>
-        <default_value/>
+        <default_value>cambridge</default_value>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -80,12 +80,12 @@
       </parameter>
       <parameter>
         <name>SAFV_SCHEMA</name>
-        <default_value>SAFV</default_value>
+        <default_value/>
         <description/>
       </parameter>
       <parameter>
         <name>SAFV_USER</name>
-        <default_value/>
+        <default_value>pskloud</default_value>
         <description>pskloud</description>
       </parameter>
     </parameters>
@@ -509,7 +509,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/03/03 15:32:21.234</modified_date>
+    <modified_date>2021/04/24 14:50:14.315</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -1011,7 +1011,7 @@
       </field>
       <field>
         <name>preciooriginal</name>
-        <type>Number</type>
+        <type>BigNumber</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1798,6 +1798,10 @@ order by
         <name>fechadocant</name>
         <replaceby>fechadoc</replaceby>
       </field>
+      <field>
+        <name>preciooriginal</name>
+        <replaceby>preciounit</replaceby>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2182,6 +2186,29 @@ from
         <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>lote</name>
+        <length>30</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>lote</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
