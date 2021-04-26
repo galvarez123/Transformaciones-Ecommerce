@@ -484,7 +484,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/04/24 14:53:41.490</modified_date>
+    <modified_date>2021/04/26 16:34:47.848</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -680,26 +680,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ORDEN</from>
-      <to>SORT LOTE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ORDEN</from>
-      <to>SORT ALMACEN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ORDEN</from>
-      <to>SORTCODIGO</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ORDEN</from>
-      <to>Formula 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Formula 2</from>
       <to>Select values</to>
       <enabled>Y</enabled>
@@ -722,6 +702,41 @@
     <hop>
       <from>Table input</from>
       <to>Formula</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Dummy (do nothing) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>ORDEN</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 2</from>
+      <to>Formula 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 2</from>
+      <to>SORT LOTE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 2</from>
+      <to>SORT ALMACEN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing) 2</from>
+      <to>SORTCODIGO</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -867,7 +882,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
+      <xloc>1056</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -908,7 +923,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
+      <xloc>1104</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -949,7 +964,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
+      <xloc>1104</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -990,7 +1005,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>1088</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1064,7 +1079,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>832</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1116,7 +1131,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>912</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1165,7 +1180,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>912</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1211,7 +1226,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
+      <xloc>912</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1392,7 +1407,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
+      <xloc>1264</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2049,7 +2064,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>816</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2107,7 +2122,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>816</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2149,7 +2164,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>816</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2219,7 +2234,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
+      <xloc>944</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2302,6 +2317,7 @@
     <sql>select
 f.horadocum, 
 f.ampm,
+f.estatusdoc,
 a.*
 from
 	factura_linea a
@@ -2359,6 +2375,29 @@ and a.tipodoc ='N/C'
         <origin>Table input</origin>
         <comments>ampm</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_VE</date_format_locale>
+        <date_format_timezone>America/Caracas</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>estatusdoc</name>
+        <length>1</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>estatusdoc</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -4717,7 +4756,7 @@ and a.tipodoc ='N/C'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>1184</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4768,7 +4807,7 @@ and a.tipodoc ='N/C'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>1184</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4813,7 +4852,7 @@ and a.tipodoc ='N/C'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>1184</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4854,7 +4893,7 @@ CODIGO = ?</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>1008</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4906,7 +4945,7 @@ where
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>1008</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4957,7 +4996,7 @@ limit 1
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>1152</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -5002,8 +5041,102 @@ and almacen= ?</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>1008</xloc>
       <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Dummy (do nothing)</send_true_to>
+    <send_false_to>Dummy (do nothing) 2</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>estatusdoc</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>3</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>#</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Dummy (do nothing) 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
