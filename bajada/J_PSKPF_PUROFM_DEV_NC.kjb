@@ -1,5 +1,5 @@
 <job>
-  <name>J_PSKPF_PUROFM_FACTURA</name>
+  <name>J_PSKPF_PUROFM_DEV_NC</name>
   <description/>
   <extended_description/>
   <job_version/>
@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/04/27 23:26:50.328</modified_date>
+  <modified_date>2021/04/27 23:30:21.844</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
@@ -506,181 +506,6 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>LINEAS FAC</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>T_PSKPFM_PUROFM_ORDEN_LINEAS</transname>
-      <directory>/purofarma/bajada</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>Y</set_logfile>
-      <logfile>${LOGS_DIRECTORY}\${Internal.Job.Name}</logfile>
-      <logext>log</logext>
-      <add_date>Y</add_date>
-      <add_time>Y</add_time>
-      <loglevel>Detailed</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>Y</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>Y</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>ECOMIX_HOST_NAME</name>
-          <stream_name/>
-          <value>${ECOMIX_HOST_NAME}</value>
-        </parameter>
-        <parameter>
-          <name>ECOMIX_PASSWORD</name>
-          <stream_name/>
-          <value>${ECOMIX_PASSWORD}</value>
-        </parameter>
-        <parameter>
-          <name>ECOMIX_PORT</name>
-          <stream_name/>
-          <value>${ECOMIX_PORT}</value>
-        </parameter>
-        <parameter>
-          <name>ECOMIX_SCHEMA</name>
-          <stream_name/>
-          <value>${ECOMIX_SCHEMA}</value>
-        </parameter>
-        <parameter>
-          <name>ECOMIX_USER</name>
-          <stream_name/>
-          <value>${ECOMIX_USER}</value>
-        </parameter>
-        <parameter>
-          <name>PUROFM_HOST_NAME</name>
-          <stream_name/>
-          <value>${PUROFM_HOST_NAME}</value>
-        </parameter>
-        <parameter>
-          <name>PUROFM_PASSWORD</name>
-          <stream_name/>
-          <value>${PUROFM_PASSWORD}</value>
-        </parameter>
-        <parameter>
-          <name>PUROFM_PORT</name>
-          <stream_name/>
-          <value>${PUROFM_PORT}</value>
-        </parameter>
-        <parameter>
-          <name>PUROFM_SCHEMA</name>
-          <stream_name/>
-          <value>${PUROFM_SCHEMA}</value>
-        </parameter>
-        <parameter>
-          <name>PUROFM_USER</name>
-          <stream_name/>
-          <value>${PUROFM_USER}</value>
-        </parameter>
-        <parameter>
-          <name>CASARE_HOST_NAME</name>
-          <stream_name/>
-          <value>${CASARE_HOST_NAME}</value>
-        </parameter>
-        <parameter>
-          <name>CASARE_PASSWORD</name>
-          <stream_name/>
-          <value>${CASARE_PASSWORD}</value>
-        </parameter>
-        <parameter>
-          <name>CASARE_PORT</name>
-          <stream_name/>
-          <value>${CASARE_PORT}</value>
-        </parameter>
-        <parameter>
-          <name>CASARE_SCHEMA</name>
-          <stream_name/>
-          <value>${CASARE_SCHEMA}</value>
-        </parameter>
-        <parameter>
-          <name>CASARE_USER</name>
-          <stream_name/>
-          <value>${CASARE_USER}</value>
-        </parameter>
-        <parameter>
-          <name>LOGS_DIRECTORY</name>
-          <stream_name/>
-          <value>${LOGS_DIRECTORY}</value>
-        </parameter>
-        <parameter>
-          <name>PSK_PF_HOST_NAME</name>
-          <stream_name/>
-          <value>${PSK_PF_HOST_NAME}</value>
-        </parameter>
-        <parameter>
-          <name>PSK_PF_PASSWORD</name>
-          <stream_name/>
-          <value>${PSK_PF_PASSWORD}</value>
-        </parameter>
-        <parameter>
-          <name>PSK_PF_PORT</name>
-          <stream_name/>
-          <value>${PSK_PF_PORT}</value>
-        </parameter>
-        <parameter>
-          <name>PSK_PF_SCHEMA</name>
-          <stream_name/>
-          <value>${PSK_PF_SCHEMA}</value>
-        </parameter>
-        <parameter>
-          <name>PSK_PF_USER</name>
-          <stream_name/>
-          <value>${PSK_PF_USER}</value>
-        </parameter>
-        <parameter>
-          <name>SAFV_HOST_NAME</name>
-          <stream_name/>
-          <value>${SAFV_HOST_NAME}</value>
-        </parameter>
-        <parameter>
-          <name>SAFV_PASSWORD</name>
-          <stream_name/>
-          <value>${SAFV_PASSWORD}</value>
-        </parameter>
-        <parameter>
-          <name>SAFV_PORT</name>
-          <stream_name/>
-          <value>${SAFV_PORT}</value>
-        </parameter>
-        <parameter>
-          <name>SAFV_SCHEMA</name>
-          <stream_name/>
-          <value>${SAFV_SCHEMA}</value>
-        </parameter>
-        <parameter>
-          <name>SAFV_USER</name>
-          <stream_name/>
-          <value>${SAFV_USER}</value>
-        </parameter>
-        <parameter>
-          <name>ID_EMPRESA</name>
-          <stream_name/>
-          <value>${ID_EMPRESA}</value>
-        </parameter>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>512</xloc>
-      <yloc>96</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
       <name>Check Db connections</name>
       <description/>
       <type>CHECK_DB_CONNECTIONS</type>
@@ -755,14 +580,14 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>CABECERA FAC</name>
+      <name>LINEAS dev</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>T_PSKPFM_PUROFM_ORDEN</transname>
+      <transname>T_PSKPFM_PUROFM_DEV_LINEAS</transname>
       <directory>/purofarma/bajada</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -925,21 +750,187 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>688</xloc>
+      <xloc>496</xloc>
+      <yloc>96</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>CABECERA DEV</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>rep_name</specification_method>
+      <trans_object_id/>
+      <filename/>
+      <transname>T_PSKPFM_PUROFM_DEV</transname>
+      <directory>/purofarma/bajada</directory>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>Y</set_logfile>
+      <logfile>${LOGS_DIRECTORY}\${Internal.Job.Name}</logfile>
+      <logext>log</logext>
+      <add_date>Y</add_date>
+      <add_time>Y</add_time>
+      <loglevel>Detailed</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>Y</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>Y</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>ECOMIX_HOST_NAME</name>
+          <stream_name/>
+          <value>${ECOMIX_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_PASSWORD</name>
+          <stream_name/>
+          <value>${ECOMIX_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_PORT</name>
+          <stream_name/>
+          <value>${ECOMIX_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_SCHEMA</name>
+          <stream_name/>
+          <value>${ECOMIX_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>ECOMIX_USER</name>
+          <stream_name/>
+          <value>${ECOMIX_USER}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_HOST_NAME</name>
+          <stream_name/>
+          <value>${PUROFM_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_PASSWORD</name>
+          <stream_name/>
+          <value>${PUROFM_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_PORT</name>
+          <stream_name/>
+          <value>${PUROFM_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_SCHEMA</name>
+          <stream_name/>
+          <value>${PUROFM_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>PUROFM_USER</name>
+          <stream_name/>
+          <value>${PUROFM_USER}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_HOST_NAME</name>
+          <stream_name/>
+          <value>${CASARE_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_PASSWORD</name>
+          <stream_name/>
+          <value>${CASARE_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_PORT</name>
+          <stream_name/>
+          <value>${CASARE_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_SCHEMA</name>
+          <stream_name/>
+          <value>${CASARE_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>CASARE_USER</name>
+          <stream_name/>
+          <value>${CASARE_USER}</value>
+        </parameter>
+        <parameter>
+          <name>LOGS_DIRECTORY</name>
+          <stream_name/>
+          <value>${LOGS_DIRECTORY}</value>
+        </parameter>
+        <parameter>
+          <name>PSK_PF_HOST_NAME</name>
+          <stream_name/>
+          <value>${PSK_PF_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>PSK_PF_PASSWORD</name>
+          <stream_name/>
+          <value>${PSK_PF_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>PSK_PF_PORT</name>
+          <stream_name/>
+          <value>${PSK_PF_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>PSK_PF_SCHEMA</name>
+          <stream_name/>
+          <value>${PSK_PF_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>PSK_PF_USER</name>
+          <stream_name/>
+          <value>${PSK_PF_USER}</value>
+        </parameter>
+        <parameter>
+          <name>SAFV_HOST_NAME</name>
+          <stream_name/>
+          <value>${SAFV_HOST_NAME}</value>
+        </parameter>
+        <parameter>
+          <name>SAFV_PASSWORD</name>
+          <stream_name/>
+          <value>${SAFV_PASSWORD}</value>
+        </parameter>
+        <parameter>
+          <name>SAFV_PORT</name>
+          <stream_name/>
+          <value>${SAFV_PORT}</value>
+        </parameter>
+        <parameter>
+          <name>SAFV_SCHEMA</name>
+          <stream_name/>
+          <value>${SAFV_SCHEMA}</value>
+        </parameter>
+        <parameter>
+          <name>SAFV_USER</name>
+          <stream_name/>
+          <value>${SAFV_USER}</value>
+        </parameter>
+        <parameter>
+          <name>ID_EMPRESA</name>
+          <stream_name/>
+          <value>${ID_EMPRESA}</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>656</xloc>
       <yloc>96</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Check Db connections</from>
-      <to>LINEAS FAC</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>START</from>
       <to>T_SetVariables</to>
@@ -959,8 +950,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>LINEAS FAC</from>
-      <to>CABECERA FAC</to>
+      <from>LINEAS dev</from>
+      <to>CABECERA DEV</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>LINEAS dev</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
