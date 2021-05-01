@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/05/01 12:23:14.486</modified_date>
+  <modified_date>2021/05/01 13:53:01.518</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
@@ -32,132 +32,14 @@
     </parameter>
   </parameters>
   <connection>
-    <name>CASARE</name>
-    <server>${CASARE_HOST_NAME}</server>
+    <name>SAFV</name>
+    <server>${SAFV_HOST_NAME}</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>${CASARE_SCHEMA}</database>
+    <database>${SAFV_SCHEMA}</database>
     <port>3306</port>
-    <username>${CASARE_USER}</username>
-    <password>${CASARE_PASSWORD}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.useSSL</code>
-        <attribute>false</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>ECOMIX</name>
-    <server>${ECOMIX_HOST_NAME}</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>${ECOMIX_SCHEMA}</database>
-    <port>3306</port>
-    <username>${ECOMIX_USER}</username>
-    <password>${ECOMIX_PASSWORD}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.useSSL</code>
-        <attribute>false</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>PUROFM</name>
-    <server>${PUROFM_HOST_NAME}</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>${PUROFM_SCHEMA}</database>
-    <port>3306</port>
-    <username>${PUROFM_USER}</username>
-    <password>${PUROFM_PASSWORD}</password>
+    <username>${SAFV_USER}</username>
+    <password>${SAFV_PASSWORD}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -592,17 +474,7 @@
       <attributes/>
       <connections>
         <connection>
-          <name>ECOMIX</name>
-          <waitfor>0</waitfor>
-          <waittime>millisecond</waittime>
-        </connection>
-        <connection>
-          <name>PUROFM</name>
-          <waitfor>0</waitfor>
-          <waittime>millisecond</waittime>
-        </connection>
-        <connection>
-          <name>CASARE</name>
+          <name>SAFV</name>
           <waitfor>0</waitfor>
           <waittime>millisecond</waittime>
         </connection>
@@ -630,7 +502,7 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>Y</set_logfile>
-      <logfile>${LOGS_DIRECTORY}\${Internal.Job.Name}</logfile>
+      <logfile>${LOGS_DIRECTORY}\${Internal.Job.Name}T_SetVariables</logfile>
       <logext>log</logext>
       <add_date>Y</add_date>
       <add_time>Y</add_time>
