@@ -8,16 +8,16 @@
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/04/30 18:07:01.175</modified_date>
+  <modified_date>2021/05/11 15:52:53.719</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
-      <default_value>C:\Sincronizadores\generales\droeca.properties</default_value>
+      <default_value/>
       <description/>
     </parameter>
     <parameter>
       <name>LOGS_DIRECTORY</name>
-      <default_value>C:\logs</default_value>
+      <default_value/>
       <description/>
     </parameter>
     <parameter>
