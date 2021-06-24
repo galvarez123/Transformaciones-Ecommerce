@@ -20,7 +20,7 @@ set minuto=%time:~3,2%
 "C:\Program Files (x86)\WinSCP\WinSCP.exe" ^
   /log="%1\FTP_PUROFARMA_%anio%%mes%%dia%_%hora%%minuto%.log" /ini=nul ^
   /command ^
-    "open ftp://gabriel%40purofarma.com:uTb7xW8qYq2A@192.145.237.165/ -rawsettings ProxyPort=0" ^
+    "open ftp://gabriel%%40purofarma.com:uTb7xW8qYq2A@192.145.237.165/ -rawsettings ProxyPort=0" ^
 	"lcd \\10.1.240.16\Compartidos\Mercadeo\Productos " ^
 	"synchronize  remote " ^
     "exit"
