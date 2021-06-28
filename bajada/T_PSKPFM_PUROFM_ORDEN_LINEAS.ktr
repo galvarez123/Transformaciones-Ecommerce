@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>ID_EMPRESA</name>
-        <default_value>PUROFM</default_value>
+        <default_value/>
         <description/>
       </parameter>
       <parameter>
@@ -20,7 +20,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_PASSWORD</name>
-        <default_value>cambridge</default_value>
+        <default_value/>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -35,7 +35,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_USER</name>
-        <default_value>pskloud</default_value>
+        <default_value/>
         <description>pskloud</description>
       </parameter>
       <parameter>
@@ -45,7 +45,7 @@
       </parameter>
       <parameter>
         <name>PUROFM_PASSWORD</name>
-        <default_value>cambridge</default_value>
+        <default_value/>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -60,8 +60,18 @@
       </parameter>
       <parameter>
         <name>PUROFM_USER</name>
-        <default_value>pskloud</default_value>
+        <default_value/>
         <description>pskloud</description>
+      </parameter>
+      <parameter>
+        <name>WEEKS_TOQUERY</name>
+        <default_value/>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>WHERE_CLAUSE</name>
+        <default_value/>
+        <description>AND A.DOCUMENTO='00002087'</description>
       </parameter>
     </parameters>
     <log>
@@ -484,7 +494,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/05/10 14:50:55.490</modified_date>
+    <modified_date>2021/06/28 17:50:10.447</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -837,18 +847,6 @@
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>concepto</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Factura a cliente</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
         <name>idvalidacion</name>
         <type>String</type>
         <format/>
@@ -1161,6 +1159,14 @@
       <formula_string>CONCATENATE([horadocum];IF([ampm]&lt;2;" am";" pm"))</formula_string>
       <value_type>String</value_type>
       <value_length>5</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <formula>
+      <field_name>concepto</field_name>
+      <formula_string>CONCATENATE("Factura # "; [documento])</formula_string>
+      <value_type>String</value_type>
+      <value_length>100</value_length>
       <value_precision>-1</value_precision>
       <replace_field/>
     </formula>
@@ -2288,45 +2294,63 @@
     <fields>
       <field>
         <name>id_empresa</name>
+        <rename/>
       </field>
       <field>
         <name>agencia</name>
+        <rename/>
       </field>
       <field>
         <name>documento</name>
+        <rename/>
       </field>
       <field>
         <name>grupo</name>
+        <rename/>
       </field>
       <field>
         <name>codigo</name>
+        <rename/>
       </field>
       <field>
         <name>pid</name>
+        <rename/>
       </field>
       <field>
         <name>cantidad</name>
+        <rename/>
       </field>
       <field>
         <name>almacen</name>
+        <rename/>
       </field>
       <field>
         <name>fechadoc</name>
+        <rename/>
       </field>
       <field>
         <name>emisor</name>
+        <rename/>
       </field>
       <field>
         <name>aux1</name>
+        <rename/>
       </field>
       <field>
         <name>estacion</name>
+        <rename/>
       </field>
       <field>
         <name>lote</name>
+        <rename/>
       </field>
       <field>
         <name>horanew</name>
+        <rename/>
+      </field>
+      <field>
+        <name>concepto</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2440,6 +2464,9 @@ and a.PID = o.PID
 where 
 o.documento is null
 and a.tipodoc ='fac'
+and a.fechadoc > ADDDATE( CURDATE() , INTERVAL - ${WEEKS_TOQUERY} WEEK)
+${WHERE_CLAUSE}
+
 
 </sql>
     <limit>0</limit>
@@ -4805,7 +4832,7 @@ and a.tipodoc ='fac'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>48</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
@@ -5071,14 +5098,11 @@ where
     <rowlimit>0</rowlimit>
     <sql>select
 costo,
-costoprom
+costo_prom costoprom
 from
-	kardex 
+	articulo 
 where
 	codigo = ?
-	and almacen = ?
-	and origen in ('COM','TRA')
-order by  fecha desc  	 
 limit 1
 </sql>
     <outer_join>N</outer_join>
@@ -5086,10 +5110,6 @@ limit 1
     <parameter>
       <field>
         <name>codigo</name>
-        <type>String</type>
-      </field>
-      <field>
-        <name>almacen</name>
         <type>String</type>
       </field>
     </parameter>

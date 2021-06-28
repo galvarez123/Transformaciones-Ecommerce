@@ -10,7 +10,7 @@
     <parameters>
       <parameter>
         <name>ID_EMPRESA</name>
-        <default_value>PUROFM</default_value>
+        <default_value/>
         <description/>
       </parameter>
       <parameter>
@@ -62,6 +62,16 @@
         <name>PUROFM_USER</name>
         <default_value/>
         <description>pskloud</description>
+      </parameter>
+      <parameter>
+        <name>WEEKS_TOQUERY</name>
+        <default_value/>
+        <description>2</description>
+      </parameter>
+      <parameter>
+        <name>WHERE_CLAUSE</name>
+        <default_value/>
+        <description>AND A.DOCUMENTO='00002087'</description>
       </parameter>
     </parameters>
     <log>
@@ -484,7 +494,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/04/24 15:06:29.687</modified_date>
+    <modified_date>2021/06/28 17:49:45.092</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -729,7 +739,7 @@
       <value>
         <name>tipodoc</name>
         <rename>tipodoc</rename>
-        <update>Y</update>
+        <update>N</update>
       </value>
       <value>
         <name>subtipodoc</name>
@@ -744,12 +754,12 @@
       <value>
         <name>documento</name>
         <rename>documento</rename>
-        <update>Y</update>
+        <update>N</update>
       </value>
       <value>
         <name>codcliente</name>
         <rename>codcliente</rename>
-        <update>Y</update>
+        <update>N</update>
       </value>
       <value>
         <name>nombrecli</name>
@@ -1560,8 +1570,10 @@
     <sql>select
 *
 from
-	factura
-WHERE tipodoc ='FAC'</sql>
+	factura a
+WHERE a.tipodoc ='FAC'
+and a.emision > ADDDATE( CURDATE() , INTERVAL - ${WEEKS_TOQUERY} WEEK)
+ ${WHERE_CLAUSE}</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
