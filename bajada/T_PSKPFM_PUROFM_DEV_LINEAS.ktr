@@ -10,8 +10,8 @@
     <parameters>
       <parameter>
         <name>ID_EMPRESA</name>
-        <default_value>PUROFM</default_value>
-        <description/>
+        <default_value/>
+        <description>PUROFM</description>
       </parameter>
       <parameter>
         <name>PSK_PF_HOST_NAME</name>
@@ -20,7 +20,7 @@
       </parameter>
       <parameter>
         <name>PSK_PF_PASSWORD</name>
-        <default_value>cambridge</default_value>
+        <default_value/>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -31,11 +31,11 @@
       <parameter>
         <name>PSK_PF_SCHEMA</name>
         <default_value/>
-        <description/>
+        <description>psk_pf</description>
       </parameter>
       <parameter>
         <name>PSK_PF_USER</name>
-        <default_value>pskloud</default_value>
+        <default_value/>
         <description>pskloud</description>
       </parameter>
       <parameter>
@@ -45,7 +45,7 @@
       </parameter>
       <parameter>
         <name>PUROFM_PASSWORD</name>
-        <default_value>cambridge</default_value>
+        <default_value/>
         <description>cambridge</description>
       </parameter>
       <parameter>
@@ -56,12 +56,22 @@
       <parameter>
         <name>PUROFM_SCHEMA</name>
         <default_value/>
-        <description/>
+        <description>adminpurofm</description>
       </parameter>
       <parameter>
         <name>PUROFM_USER</name>
-        <default_value>pskloud</default_value>
+        <default_value/>
         <description>pskloud</description>
+      </parameter>
+      <parameter>
+        <name>WEEKS_TOQUERY</name>
+        <default_value/>
+        <description>2</description>
+      </parameter>
+      <parameter>
+        <name>WHERE_CLAUSE</name>
+        <default_value/>
+        <description>AND A.DOCUMENTO='00002087'</description>
       </parameter>
     </parameters>
     <log>
@@ -484,7 +494,7 @@
     <created_user>-</created_user>
     <created_date>2016/06/06 08:41:53.808</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/04/27 23:39:40.933</modified_date>
+    <modified_date>2021/07/02 17:14:13.017</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -616,7 +626,7 @@
     </hop>
     <hop>
       <from>Formula</from>
-      <to>ORDEN</to>
+      <to>OPERMV</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -715,7 +725,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ORDEN</from>
+      <from>OPERMV</from>
       <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
@@ -739,6 +749,31 @@
       <to>SORTCODIGO</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Formula 3</from>
+      <to>Add constants 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants 2</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>DEVOLMV</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>OPERMV</from>
+      <to>Select values 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2 2</from>
+      <to>Formula 3</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -759,7 +794,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>2</nullif>
+        <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -867,7 +902,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>N/C</nullif>
+        <nullif>DEV</nullif>
         <length>3</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -884,6 +919,153 @@
     <GUI>
       <xloc>1056</xloc>
       <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants 2</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>tipodoc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>DEV</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dscto1prc</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dscto2prc</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dscto3prc</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dscto4prc</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>dscto5prc</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>recargouni</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>turno</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>isrma</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>serialesrma</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1006,6 +1188,503 @@
     </remotesteps>
     <GUI>
       <xloc>1088</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DEVOLMV</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PUROFM</connection>
+    <commit>1</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>${PUROFM_SCHEMA}</schema>
+      <table>DEVOLMV</table>
+      <key>
+        <name>tipodoc</name>
+        <field>tipodoc</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>documento</name>
+        <field>documento</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>proveedor</name>
+        <field>proveedor</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>codigo</name>
+        <field>codigo</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>pid</name>
+        <field>pid</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>agencia</name>
+        <rename>agencia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>agrupado</name>
+        <rename>agrupado</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>almacen</name>
+        <rename>almacen</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>almacenrma</name>
+        <rename>almacenrma</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>aux1</name>
+        <rename>aux1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo1</name>
+        <rename>baseimpo1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo2</name>
+        <rename>baseimpo2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo3</name>
+        <rename>baseimpo3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo4</name>
+        <rename>baseimpo4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo5</name>
+        <rename>baseimpo5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>baseimpo6</name>
+        <rename>baseimpo6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cantidad</name>
+        <rename>cantidad</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cantref</name>
+        <rename>cantref</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>clasifica</name>
+        <rename>clasifica</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cntagrupada</name>
+        <rename>cntagrupada</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cntdevuelt</name>
+        <rename>cntdevuelt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cntentrega</name>
+        <rename>cntentrega</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cod_servidor</name>
+        <rename>cod_servidor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codhijo</name>
+        <rename>codhijo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>codigo</name>
+        <rename>codigo</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>colores</name>
+        <rename>colores</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comision</name>
+        <rename>comision</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>comisprc</name>
+        <rename>comisprc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>compuesto</name>
+        <rename>compuesto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>costounit</name>
+        <rename>costounit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cuentacont</name>
+        <rename>cuentacont</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>desdeimpor</name>
+        <rename>desdeimpor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>diferencia</name>
+        <rename>diferencia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>documento</name>
+        <rename>documento</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>dscto1prc</name>
+        <rename>dscto1prc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dscto2prc</name>
+        <rename>dscto2prc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dscto3prc</name>
+        <rename>dscto3prc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dscto4prc</name>
+        <rename>dscto4prc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dscto5prc</name>
+        <rename>dscto5prc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dsctoendm</name>
+        <rename>dsctoendm</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dsctoendp</name>
+        <rename>dsctoendp</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dsctoprc</name>
+        <rename>dsctoprc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>dsctounit</name>
+        <rename>dsctounit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>emisor</name>
+        <rename>emisor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>estacion</name>
+        <rename>estacion</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fechadoc</name>
+        <rename>fechadoc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>frog</name>
+        <rename>frog</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>grupo</name>
+        <rename>grupo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>imp_nacional</name>
+        <rename>imp_nacional</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>imp_producc</name>
+        <rename>imp_producc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impu_mto</name>
+        <rename>impu_mto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto1</name>
+        <rename>impuesto1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto2</name>
+        <rename>impuesto2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto3</name>
+        <rename>impuesto3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto4</name>
+        <rename>impuesto4</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto5</name>
+        <rename>impuesto5</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>impuesto6</name>
+        <rename>impuesto6</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>isrma</name>
+        <rename>isrma</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>lote</name>
+        <rename>lote</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>marca</name>
+        <rename>marca</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>montoneto</name>
+        <rename>montoneto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>montototal</name>
+        <rename>montototal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>mto_comi_servidor</name>
+        <rename>mto_comi_servidor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nombre</name>
+        <rename>nombre</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>notas</name>
+        <rename>notas</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>oferta</name>
+        <rename>oferta</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ofertaconvenio</name>
+        <rename>ofertaconvenio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>origen</name>
+        <rename>origen</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pid</name>
+        <rename>pid</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>prc_comi_servidor</name>
+        <rename>prc_comi_servidor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>prcrecargo</name>
+        <rename>prcrecargo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>preciofin</name>
+        <rename>preciofin</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>precioorig</name>
+        <rename>precioorig</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>preciounit</name>
+        <rename>preciounit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>proveedor</name>
+        <rename>proveedor</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>recargouni</name>
+        <rename>recargouni</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>seimporto</name>
+        <rename>seimporto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>serialesrma</name>
+        <rename>serialesrma</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>sinimpuest</name>
+        <rename>sinimpuest</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>subgrupo</name>
+        <rename>subgrupo</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tallas</name>
+        <rename>tallas</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>timpueprc</name>
+        <rename>timpueprc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>tipodoc</name>
+        <rename>tipodoc</rename>
+        <update>N</update>
+      </value>
+      <value>
+        <name>tipoprecio</name>
+        <rename>tipoprecio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>turno</name>
+        <rename>turno</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>udinamica</name>
+        <rename>udinamica</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>unidad</name>
+        <rename>unidad</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>unidadref</name>
+        <rename>unidadref</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>usaexist</name>
+        <rename>usaexist</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>usaserial</name>
+        <rename>usaserial</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>vendedor</name>
+        <rename>vendedor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_empresa</name>
+        <rename>id_empresa</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
       <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1175,6 +1854,39 @@
     <GUI>
       <xloc>832</xloc>
       <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Formula 3</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>sinimpuest</field_name>
+      <formula_string>[montoneto]-[baseimpo1]</formula_string>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1491,6 +2203,11 @@
         <rename>idvalidacion</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>origen</name>
+        <rename>origen</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1563,7 +2280,7 @@
     </GUI>
   </step>
   <step>
-    <name>ORDEN</name>
+    <name>OPERMV</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>N</distribute>
@@ -1575,7 +2292,7 @@
     </partitioning>
     <connection>PUROFM</connection>
     <commit>1</commit>
-    <update_bypassed>Y</update_bypassed>
+    <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>ADMINPUROFM</schema>
       <table>OPERMV</table>
@@ -2340,6 +3057,818 @@
     </GUI>
   </step>
   <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>agencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>agrupado</name>
+        <rename/>
+      </field>
+      <field>
+        <name>almacen</name>
+        <rename/>
+      </field>
+      <field>
+        <name>almacenrma</name>
+        <rename/>
+      </field>
+      <field>
+        <name>aux1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo3</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo4</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo5</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo6</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cantidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cantref</name>
+        <rename/>
+      </field>
+      <field>
+        <name>clasifica</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cntagrupada</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cntdevuelt</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cntentrega</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cod_servidor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codhijo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codigo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>colores</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comision</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comisprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>compuesto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>costounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cuentacont</name>
+        <rename/>
+      </field>
+      <field>
+        <name>desdeimpor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>diferencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dscto1prc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dscto2prc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dscto3prc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dscto4prc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dscto5prc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoendm</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoendp</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>emisor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fechadoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>frog</name>
+        <rename/>
+      </field>
+      <field>
+        <name>id_empresa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>grupo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>imp_nacional</name>
+        <rename/>
+      </field>
+      <field>
+        <name>imp_producc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impu_mto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto3</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto4</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto5</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto6</name>
+        <rename/>
+      </field>
+      <field>
+        <name>isrma</name>
+        <rename/>
+      </field>
+      <field>
+        <name>lote</name>
+        <rename/>
+      </field>
+      <field>
+        <name>marca</name>
+        <rename/>
+      </field>
+      <field>
+        <name>montoneto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>montototal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>mto_comi_servidor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nombre</name>
+        <rename/>
+      </field>
+      <field>
+        <name>notas</name>
+        <rename/>
+      </field>
+      <field>
+        <name>oferta</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ofertaconvenio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>origen</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pid</name>
+        <rename/>
+      </field>
+      <field>
+        <name>prc_comi_servidor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>prcrecargo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>preciofin</name>
+        <rename/>
+      </field>
+      <field>
+        <name>precioorig</name>
+        <rename/>
+      </field>
+      <field>
+        <name>preciounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>proveedor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>recargouni</name>
+        <rename/>
+      </field>
+      <field>
+        <name>seimporto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>serialesrma</name>
+        <rename/>
+      </field>
+      <field>
+        <name>sinimpuest</name>
+        <rename/>
+      </field>
+      <field>
+        <name>subgrupo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tallas</name>
+        <rename/>
+      </field>
+      <field>
+        <name>timpueprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipodoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipoprecio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>turno</name>
+        <rename/>
+      </field>
+      <field>
+        <name>udinamica</name>
+        <rename/>
+      </field>
+      <field>
+        <name>unidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>unidadref</name>
+        <rename/>
+      </field>
+      <field>
+        <name>usaexist</name>
+        <rename/>
+      </field>
+      <field>
+        <name>usaserial</name>
+        <rename/>
+      </field>
+      <field>
+        <name>vendedor</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>agencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>agenciant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>agrupado</name>
+        <rename/>
+      </field>
+      <field>
+        <name>almacen</name>
+        <rename>almacenrma</rename>
+      </field>
+      <field>
+        <name>almacen</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ampm</name>
+        <rename/>
+      </field>
+      <field>
+        <name>aux1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo3</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo4</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo5</name>
+        <rename/>
+      </field>
+      <field>
+        <name>baseimpo6</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cantidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cantref</name>
+        <rename/>
+      </field>
+      <field>
+        <name>checkin</name>
+        <rename/>
+      </field>
+      <field>
+        <name>clasifica</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cntagrupada</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cntdevuelt</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cntentrega</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cod_servidor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>coddescuento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codhijo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codigo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>colores</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comision</name>
+        <rename/>
+      </field>
+      <field>
+        <name>comisprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>compuesto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>costounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>cuentacont</name>
+        <rename/>
+      </field>
+      <field>
+        <name>desdeimpor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>diferencia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>documentolocal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoendm</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoendp</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctomtolinea</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctoprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dsctounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>emisor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>enviado_kmonitor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estacioant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estacionfac</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estatusdoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fechadoc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fechadocant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fechayhora</name>
+        <rename/>
+      </field>
+      <field>
+        <name>frog</name>
+        <rename/>
+      </field>
+      <field>
+        <name>grupo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>habi_nro</name>
+        <rename/>
+      </field>
+      <field>
+        <name>horadocum</name>
+        <rename/>
+      </field>
+      <field>
+        <name>id_empresa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idoferta</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idvalidacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>imp_nacional</name>
+        <rename/>
+      </field>
+      <field>
+        <name>imp_producc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impu_mto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto3</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto4</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto5</name>
+        <rename/>
+      </field>
+      <field>
+        <name>impuesto6</name>
+        <rename/>
+      </field>
+      <field>
+        <name>linbloq</name>
+        <rename/>
+      </field>
+      <field>
+        <name>lote</name>
+        <rename/>
+      </field>
+      <field>
+        <name>marca</name>
+        <rename/>
+      </field>
+      <field>
+        <name>montoneto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>montototal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>mto_comi_servidor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nombre</name>
+        <rename/>
+      </field>
+      <field>
+        <name>notas</name>
+        <rename/>
+      </field>
+      <field>
+        <name>oferta</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ofertaconvenio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>origen</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pid</name>
+        <rename/>
+      </field>
+      <field>
+        <name>placa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>placaod</name>
+        <rename/>
+      </field>
+      <field>
+        <name>prc_comi_servidor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>prcrecargo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>preciofin</name>
+        <rename/>
+      </field>
+      <field>
+        <name>preciooriginal</name>
+        <rename>precioorig</rename>
+      </field>
+      <field>
+        <name>preciounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>proveedor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>recargounit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>se_guardo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>se_imprimio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>seimporto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>subgrupo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tallas</name>
+        <rename/>
+      </field>
+      <field>
+        <name>timpueprc</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipodocant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>tipoprecio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>udinamica</name>
+        <rename/>
+      </field>
+      <field>
+        <name>uemisorant</name>
+        <rename/>
+      </field>
+      <field>
+        <name>unidad</name>
+        <rename/>
+      </field>
+      <field>
+        <name>unidadref</name>
+        <rename/>
+      </field>
+      <field>
+        <name>unidevuelt</name>
+        <rename/>
+      </field>
+      <field>
+        <name>usaexist</name>
+        <rename/>
+      </field>
+      <field>
+        <name>usaserial</name>
+        <rename/>
+      </field>
+      <field>
+        <name>vendedor</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>System Info</name>
     <type>SystemInfo</type>
     <description/>
@@ -2435,8 +3964,8 @@ and a.PID = o.PID
 where 
 o.documento is null
 and a.tipodoc ='N/C'
-
-</sql>
+and a.fechadoc > ADDDATE( CURDATE() , INTERVAL - ${WEEKS_TOQUERY} WEEK)
+${WHERE_CLAUSE}</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -5052,57 +6581,6 @@ where
     </GUI>
   </step>
   <step>
-    <name>kardex 2</name>
-    <type>DBJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>PUROFM</connection>
-    <rowlimit>0</rowlimit>
-    <sql>select
-costo,
-costoprom
-from
-	kardex 
-where
-	codigo = ?
-	and almacen = ?
-	and origen in ('COM','TRA')
-order by  fecha desc  	 
-limit 1
-</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>Y</replace_vars>
-    <parameter>
-      <field>
-        <name>codigo</name>
-        <type>String</type>
-      </field>
-      <field>
-        <name>almacen</name>
-        <type>String</type>
-      </field>
-    </parameter>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1152</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>existence</name>
     <type>DBJoin</type>
     <description/>
@@ -5144,6 +6622,50 @@ and almacen= ?</sql>
     <GUI>
       <xloc>1008</xloc>
       <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>kardex 2</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>PUROFM</connection>
+    <rowlimit>0</rowlimit>
+    <sql>select
+costo,
+costo_prom costoprom
+from
+	articulo 
+where
+	codigo = ?
+limit 1
+</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <parameter>
+      <field>
+        <name>codigo</name>
+        <type>String</type>
+      </field>
+    </parameter>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

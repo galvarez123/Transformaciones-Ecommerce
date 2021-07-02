@@ -8,27 +8,32 @@
   <created_user>-</created_user>
   <created_date>2016/06/06 08:42:54.345</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021/04/27 23:30:21.844</modified_date>
+  <modified_date>2021/07/02 17:13:08.959</modified_date>
   <parameters>
     <parameter>
       <name>CONFIG_FILE</name>
-      <default_value>C:\Sincronizadores\generales\config.properties</default_value>
-      <description/>
+      <default_value/>
+      <description>C:\Sincronizadores\generales\config.properties</description>
     </parameter>
     <parameter>
       <name>ID_EMPRESA</name>
-      <default_value>PUROFM</default_value>
-      <description/>
+      <default_value/>
+      <description>PUROFM</description>
     </parameter>
     <parameter>
       <name>LOGS_DIRECTORY</name>
-      <default_value>C:\logs</default_value>
-      <description/>
+      <default_value/>
+      <description>C:\logs</description>
+    </parameter>
+    <parameter>
+      <name>WEEKS_TOQUERY</name>
+      <default_value/>
+      <description>2</description>
     </parameter>
     <parameter>
       <name>WHERE_CLAUSE</name>
       <default_value/>
-      <description/>
+      <description>AND A.DOCUMENTO='00002087'</description>
     </parameter>
   </parameters>
   <connection>
@@ -746,6 +751,16 @@
           <stream_name/>
           <value>${ID_EMPRESA}</value>
         </parameter>
+        <parameter>
+          <name>WEEKS_TOQUERY</name>
+          <stream_name/>
+          <value>${WEEKS_TOQUERY}</value>
+        </parameter>
+        <parameter>
+          <name>WHERE_CLAUSE</name>
+          <stream_name/>
+          <value>${WHERE_CLAUSE}</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -920,6 +935,16 @@
           <name>ID_EMPRESA</name>
           <stream_name/>
           <value>${ID_EMPRESA}</value>
+        </parameter>
+        <parameter>
+          <name>WEEKS_TOQUERY</name>
+          <stream_name/>
+          <value>${WEEKS_TOQUERY}</value>
+        </parameter>
+        <parameter>
+          <name>WHERE_CLAUSE</name>
+          <stream_name/>
+          <value>${WHERE_CLAUSE}</value>
         </parameter>
       </parameters>
       <parallel>N</parallel>
